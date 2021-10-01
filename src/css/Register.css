@@ -46,3 +46,7 @@ input[type=password] {
     width: 400px;
     margin: 0 auto;
 }
+
+.info-message {
+    visibility: hidden
+}

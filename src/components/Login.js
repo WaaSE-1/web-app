@@ -9,11 +9,10 @@ const handleLoginSubmit = (e) => {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     }).then(data => {
-      if (data.success) {
-        alert(`Successfully logged in! \nToken: ${data.token.access_token}`)
-      } else {
-        alert(data.error)
-      }
+        let infoBar = document.getElementsByClassName("info-message")[0]
+        infoBar.style.visibility = "visible"
+        infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
+        infoBar.textContent = data.success ? data.success : data.error
     })
 
 
@@ -30,6 +29,7 @@ const Login = () => {
           <label htmlFor="password">Password</label><br />
           <input type="password" id="password" placeholder="********" required/><br />
         </div>
+        <p className="info-message">Hey</p>
         <input className="button" type="submit" value="Login" onClick={handleLoginSubmit}></input>
       </form>
     );
