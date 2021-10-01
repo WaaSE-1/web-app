@@ -1,10 +1,15 @@
 import '../css/Login.css'
+import Request from '../scripts/request'
 
 const handleLoginSubmit = (e) => {
   e.preventDefault();
-  let email = document.getElementById("email").value  
-  let password = document.getElementById("password").value
-  alert(email + " " + password)
+
+
+  // let request = Request("POST", "/users/login", {
+  //       email: document.getElementById("email").value,
+  //       password: document.getElementById("password").value
+  //   })
+
 }
 
 const Login = () => {
