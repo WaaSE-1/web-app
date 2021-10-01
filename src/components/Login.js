@@ -1,14 +1,20 @@
 import '../css/Login.css'
-//import Request from '../scripts/request'
+import Request from '../scripts/request'
 
 const handleLoginSubmit = (e) => {
   e.preventDefault();
+  
+  Request("POST", "/users/login", {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+    }).then(data => {
+      if (data.success) {
+        alert(`Successfully logged in! \nToken: ${data.token.access_token}`)
+      } else {
+        alert(data.error)
+      }
+    })
 
-
-  // let request = Request("POST", "/users/login", {
-  //       email: document.getElementById("email").value,
-  //       password: document.getElementById("password").value
-  //   })
 
 }
 
