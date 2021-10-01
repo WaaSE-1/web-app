@@ -1,5 +1,5 @@
 import '../css/Login.css'
-import Request from '../scripts/request'
+//import Request from '../scripts/request'
 
 const handleLoginSubmit = (e) => {
   e.preventDefault();
