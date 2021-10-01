@@ -9,7 +9,7 @@ const App = () => {
    
       <Router>
         <div className="App">
-          <h2>Hellstern auto!</h2>
+          <h2 style={{color:"white"}}>Hellstern auto!</h2>
           <Navbar />
           <Switch>
             <Route path="/user/register" component={Register} />
