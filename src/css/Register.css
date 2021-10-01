@@ -5,6 +5,7 @@
     padding: 20px;
     margin: auto;
     box-sizing: border-box;
+    border-radius: .2857rem
 }
 
 input[type=text],
@@ -14,8 +15,8 @@ input[type=password] {
     border: 2px solid #1e1e2f;
     padding: 10px;
     border-radius: 4px;
-    width: 15%;
-    margin: 15px 0px;
+    width: 100%;
+    margin: 5px 0px 15px 0px;
 }
 
 .left-align {
@@ -26,7 +27,7 @@ input[type=password] {
     background-color: #1e1e2f;
     color: white;
     border: 2px solid #1e1e2f;
-    padding: 10px 20px;
+    padding: 10px 60px;
     border-radius: 4px;
     margin-top: 10px
 }
@@ -34,4 +35,14 @@ input[type=password] {
 .button:hover {
     background-color: rgb(135, 135, 212);
     color: white;
+}
+
+.input-group label {
+    float: left;
+    font-weight: 100;
+}
+
+.input-group {
+    width: 400px;
+    margin: 0 auto;
 }

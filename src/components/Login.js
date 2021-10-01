@@ -3,7 +3,8 @@ import Request from '../scripts/request'
 
 const handleLoginSubmit = (e) => {
   e.preventDefault();
-
+  const formData = new FormData(document.querySelector('form'))
+  console.log(formData.entries())
   Request("POST", "/users/login", {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
@@ -21,11 +22,15 @@ const handleLoginSubmit = (e) => {
 const Login = () => {
   return ( 
       <form className="register-form">
-        <label for="email">Email:</label><br />
-        <input type="text" id="email" name="email" placeholder="johndoe@geemail.com"/><br />
-        <label for="password">Password:</label><br />
-        <input type="password" id="password" placeholder="VerySecure123!"/><br />
-        <input className="button" type="submit" value="Submit" onClick={handleLoginSubmit}></input>
+        <div className="input-group">
+          <label htmlFor="email">Email</label><br />
+          <input type="text" id="email" name="email" placeholder="name@email.com" required/><br />
+        </div>
+        <div className="input-group">
+          <label htmlFor="password">Password</label><br />
+          <input type="password" id="password" placeholder="********" required/><br />
+        </div>
+        <input className="button" type="submit" value="Login" onClick={handleLoginSubmit}></input>
       </form>
     );
 

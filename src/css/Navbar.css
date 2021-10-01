@@ -7,11 +7,12 @@ nav {
     color: white;
     width: 90%;
     margin: 30px auto;
+    border-radius: .2857rem;
 }
 
 .route {
     list-style: none;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -19,4 +20,14 @@ nav {
 
 li {
     color: white;
+    font-weight: 200;
+    font-size: 20px
+}
+
+.header-title {
+    font-weight: 300
+}
+
+a {
+    text-decoration: none;
 }
