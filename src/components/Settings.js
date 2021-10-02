@@ -1,25 +1,25 @@
 import Request from '../scripts/request' 
-
-const handleDeleteSubmit = (e) => {
-    e.preventDefault();
-    const formData = Object.fromEntries(new FormData(document.querySelector("form")))
-    Request("POST", "/users/delete", formData).then(data => {
-          let infoBar = document.getElementsByClassName("info-message")[0]
-          infoBar.style.visibility = "visible"
-          infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
-          infoBar.textContent = data.success ? data.success : data.error
-      })
-  }
+import { UserContext } from '../contexts/UserContext.js'
+import { useContext } from 'react'
+import jwt from 'jwt-decode'
 
 const Settings = () => {
+
+  const {token, setToken} = useContext(UserContext)
+
+  const handleDeleteSubmit = (e) => {
+      
+      e.preventDefault();
+      Request("DELETE", "/users/delete", {"email": jwt(token).email}, 'Bearer ' + token).then(data => {
+            if (data.success) {
+              setToken(null)
+            }
+        })
+    }
+
   return ( 
       <form className="register-form">
-        <div className="input-group">
-          <label htmlFor="email">Email</label><br />
-          <input type="text" id="email" name="email" placeholder="name@email.com" required/><br />
-        </div>
-        <p className="info-message">Hey</p>
-        <input className="button" type="submit" value="Delete" onClick={handleDeleteSubmit}></input>
+        <input className="button" type="submit" value="Delete my account!" onClick={handleDeleteSubmit}></input>
       </form>
     );
 

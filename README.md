@@ -48,5 +48,6 @@ npm start
 - [Back-end](http://localhost:8000/docs)
 
 ## Folder structure
-- 
+- src
+
 
