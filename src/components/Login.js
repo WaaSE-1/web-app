@@ -1,19 +1,29 @@
 import '../css/Login.css'
 import Request from '../scripts/request'
+import { UserContext } from '../contexts/UserContext.js'
+import { useContext } from 'react'
 
-
-const handleLoginSubmit = (e) => {
-  e.preventDefault();
-  const formData = Object.fromEntries(new FormData(document.querySelector("form")))
-  Request("POST", "/users/login", formData).then(data => {
-        let infoBar = document.getElementsByClassName("info-message")[0]
-        infoBar.style.visibility = "visible"
-        infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
-        infoBar.textContent = data.success ? data.success : data.error
-    })
-}
 
 const Login = () => {
+
+  const {setToken} = useContext(UserContext)
+
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(document.querySelector("form")))
+    Request("POST", "/users/login", formData).then(data => {
+          let infoBar = document.getElementsByClassName("info-message")[0]
+          infoBar.style.visibility = "visible"
+          infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
+          infoBar.textContent = data.success ? data.success : data.error
+          if (data.success) {
+            setToken(data.token.access_token)
+            localStorage.setItem('token', data.token.access_token)
+          } 
+      })
+  }
+
   return ( 
       <form className="register-form">
         <div className="input-group">
