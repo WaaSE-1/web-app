@@ -1,5 +1,5 @@
 async function Request(type, path, body){
-    const response = await fetch(`http://127.0.0.1:8000${path}`, {
+    const response = await fetch(`https://api-service.azurewebsites.net${path}`, {
         method: type,
         headers: {
             'Accept': 'application/json',
