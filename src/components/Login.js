@@ -1,6 +1,7 @@
 import '../css/Login.css'
 import Request from '../scripts/request'
 
+
 const handleLoginSubmit = (e) => {
   e.preventDefault();
   const formData = Object.fromEntries(new FormData(document.querySelector("form")))
@@ -10,8 +11,6 @@ const handleLoginSubmit = (e) => {
         infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
         infoBar.textContent = data.success ? data.success : data.error
     })
-
-
 }
 
 const Login = () => {
