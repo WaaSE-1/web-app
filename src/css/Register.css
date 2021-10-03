@@ -37,6 +37,11 @@ input[type=password] {
     color: white;
 }
 
+.button.register {
+    color: #df4048;
+    border: 2px solid #df4048;
+}
+
 .input-group label {
     float: left;
     font-weight: 100;

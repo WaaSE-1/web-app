@@ -19,7 +19,8 @@ const Settings = () => {
 
   return ( 
       <form className="register-form">
-        <input className="button" type="submit" value="Delete my account!" onClick={handleDeleteSubmit}></input>
+        <input className="button register" type="submit" value="Delete my account!" onClick={handleDeleteSubmit}></input><br />
+        <input className="button" type="submit" value="Logout" onClick={() => setToken(null)}></input>
       </form>
     );
 
