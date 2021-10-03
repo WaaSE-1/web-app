@@ -48,7 +48,7 @@ const Settings = () => {
             </div>
             <div className="input-group">
               <label htmlFor="phonenumber">Phone Number:</label><br/>
-              <input type="text" id="phonenumber" value={phone_number} name="phonenumber" onChange={e => setPhoneNumber(e.target.value)}/><br/><br/>
+              <input type="text" id="phone_number" value={phone_number} name="phone_number" onChange={e => setPhoneNumber(e.target.value)}/><br/><br/>
             </div>
             <div className="input-group">
               <label htmlFor="address">Street Address:</label><br/>
@@ -56,7 +56,7 @@ const Settings = () => {
             </div>
             <div className="input-group">
               <label htmlFor="loc_id">Post Code:</label><br/>
-              <input type="text" id="loc_id" disabled name="loc_id" value={location_id} onChange={e => setLocationID(e.target.value)}/><br/><br/>
+              <input type="text" id="location_id" name="location_id" value={location_id} onChange={e => setLocationID(e.target.value)}/><br/><br/>
             </div>
             <div className="input-group">
               <label htmlFor="loc_id">Password:</label><br/>
