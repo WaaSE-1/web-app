@@ -1,9 +1,9 @@
 .register-form {
     color: white;
     background-color: #27293D;
-    width: 90%;
+    width: 95%;
     padding: 20px;
-    margin: auto;
+    margin: 0 auto;
     box-sizing: border-box;
     border-radius: .2857rem
 }
