@@ -54,12 +54,12 @@ const Register = () => {
           <input type="text" id="address" name="address"/><br/><br/>
         </div>
         <div className="input-group">
-          <label htmlFor="location_id">Post Code:</label><br/>
-          <input type="text" id="location_id" name="location_id"/><br/><br/>
+          <label htmlFor="postcode">Post Code:</label><br/>
+          <input type="text" id="postcode" name="postcode"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="password">Password:</label><br/>
-          <input type="text" id="password" name="password"/><br/>
+          <input type="password" id="password" name="password"/><br/>
         </div>
         <p className="info-message">Hey</p>
         <input className = "button" type="submit" value="Submit" onClick={handleRegisterSubmit}></input>

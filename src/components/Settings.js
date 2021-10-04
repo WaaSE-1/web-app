@@ -11,7 +11,7 @@ const Settings = () => {
   const [email, setEmail] = useState(jwt(token).email)
   const [phone_number, setPhoneNumber] = useState(jwt(token).phone_number)
   const [address, setAddress] = useState(jwt(token).address)
-  const [location_id, setLocationID] = useState(jwt(token).location_id)
+  const [postcode, setPostcode] = useState(jwt(token).postcode)
 
   const handleDelete = (e) => {
       e.preventDefault();
@@ -60,8 +60,8 @@ const Settings = () => {
               <input type="text" id="address" name="address" value={address} onChange={e => setAddress(e.target.value)}/><br/><br/>
             </div>
             <div className="input-group">
-              <label htmlFor="loc_id">Post Code:</label><br/>
-              <input type="text" id="location_id" name="location_id" value={location_id} onChange={e => setLocationID(e.target.value)}/><br/><br/>
+              <label htmlFor="postcode">Post Code:</label><br/>
+              <input type="text" id="postcode" name="postcode" value={postcode} onChange={e => setPostcode(e.target.value)}/><br/><br/>
             </div>
             <div className="input-group">
               <label htmlFor="loc_id">Password:</label><br/>
