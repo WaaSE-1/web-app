@@ -11,10 +11,14 @@ const Register = () => {
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    const formData = Object.fromEntries(new FormData(document.querySelector("form")))
-    console.log(formData)
+    let formData = Object.fromEntries(new FormData(document.querySelector("form")))
+    let infoBar = document.getElementsByClassName("info-message")[0]
+    if (Object.values(formData).some(e => e === '')) {
+      infoBar.style.visibility = "visible"
+      infoBar.textContent = "Please fill out all of the fields!"
+      return
+    }
     Request("POST", "/users/register", formData).then(data => {
-          let infoBar = document.getElementsByClassName("info-message")[0]
           infoBar.style.visibility = "visible"
           infoBar.style.color = data.access_token ? "#5ffd5f" : "#ff9999"
           infoBar.textContent = data.access_token ? data.access_token : data.error
@@ -50,7 +54,7 @@ const Register = () => {
           <input type="text" id="address" name="address"/><br/><br/>
         </div>
         <div className="input-group">
-          <label htmlFor="loc_id">Post Code:</label><br/>
+          <label htmlFor="location_id">Post Code:</label><br/>
           <input type="text" id="location_id" name="location_id"/><br/><br/>
         </div>
         <div className="input-group">

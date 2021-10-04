@@ -12,8 +12,14 @@ const Login = () => {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(document.querySelector("form")))
+    let infoBar = document.getElementsByClassName("info-message")[0]
+    if (Object.values(formData).some(e => e === '')) {
+      infoBar.style.visibility = "visible"
+      infoBar.textContent = "Please fill out all of the fields!"
+      return
+    }
     Request("POST", "/users/login", formData).then(data => {
-          let infoBar = document.getElementsByClassName("info-message")[0]
+          
           infoBar.style.visibility = "visible"
           infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
           infoBar.textContent = data.success ? data.success : data.error
