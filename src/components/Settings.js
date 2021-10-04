@@ -17,6 +17,7 @@ const Settings = () => {
       e.preventDefault();
       Request("DELETE", "/users/delete", {"email": jwt(token).email}, 'Bearer ' + token).then(data => {
             if (data.success) {
+              localStorage.removeItem('token')
               setToken(null)
             }
         })
@@ -25,7 +26,11 @@ const Settings = () => {
   const handleUpdate = (e) => {
       e.preventDefault();
       Request("PUT", '/users/update', Object.fromEntries(new FormData(document.querySelector("form"))), 'Bearer ' + token).then(data => {
-            console.log(data)
+        console.log(data)
+            if (data.success) {
+              localStorage.setItem('token', data.token.access_token)
+              setToken( data.token.access_token)
+            }
         })
     }
 
@@ -68,7 +73,7 @@ const Settings = () => {
           <div className='column'>
             <div className='green-column register-form'>
               <input className="button register" type="submit" value="Delete my account!" onClick={handleDelete}></input><br />
-              <input className="button" type="submit" value="Logout" onClick={() => setToken(null)}></input>
+              <input className="button" type="submit" value="Logout" onClick={() => {setToken(null); localStorage.removeItem('token')}}></input>
             </div>
           </div>
         </div>

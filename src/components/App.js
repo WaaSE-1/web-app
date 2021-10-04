@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 const App = () => {
-  const [token, setToken] = useState(null)
+  const storedJwt = localStorage.getItem('token')
+  const [token, setToken] = useState(storedJwt || null)
 
   return (
       <Router>
