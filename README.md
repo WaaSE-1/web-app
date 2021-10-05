@@ -1,5 +1,7 @@
 # Web Application for the Car Dealership
 
+[![Azure Static Web Apps CI/CD](https://github.com/WaaSE-1/web-app/actions/workflows/azure-static-web-apps-ambitious-glacier-00cd06303.yml/badge.svg)](https://github.com/WaaSE-1/web-app/actions/workflows/azure-static-web-apps-ambitious-glacier-00cd06303.yml)
+  
 Front-end web application for the car delaership platform developed for a educational project on KEA.
 
 ### Authors
