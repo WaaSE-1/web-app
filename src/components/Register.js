@@ -43,11 +43,11 @@ const Register = () => {
         </div>
         <div className="input-group">
           <label htmlFor="email">Email:</label><br/>
-          <input type="text" id="email" name="email"/><br/><br/>
+          <input type="email" id="email" name="email"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="phonenumber">Phone Number:</label><br/>
-          <input type="text" id="phone_number" name="phone_number"/><br/><br/>
+          <input type="number" id="phone_number" name="phone_number" max="8"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="address">Street Address:</label><br/>
@@ -55,7 +55,7 @@ const Register = () => {
         </div>
         <div className="input-group">
           <label htmlFor="postcode">Post Code:</label><br/>
-          <input type="text" id="postcode" name="postcode"/><br/><br/>
+          <input type="number" max="4" id="postcode" name="postcode"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="password">Password:</label><br/>
