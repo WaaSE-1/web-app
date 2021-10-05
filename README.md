@@ -6,7 +6,7 @@ Front-end web application for the car delaership platform developed for a educat
 
 ### Authors
 - Toms Audrins
-- Niels Bleijerveld
+- Niels Bleijerveld 
 - Benjamin Skovhøj
 - Patrick Klausgaard
 - Jacob Sibbern
