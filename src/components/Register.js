@@ -13,13 +13,13 @@ const Register = () => {
 
   const updatePostCode = (e) => {
     if (e.target.value <= 9999) {
-      setPostCode(e.target.value.replace('/[^a-zA-Z\d]/ig', ""))
+      setPostCode(e.target.value.replace('/[^a-zA-Zd]/ig', ""))
     }
   }
 
   const updatePhoneNumber = (e) => {
     if (e.target.value <= 99999999) {
-      setPhoneNumber(e.target.value.replace('/[^a-zA-Z\d]/ig', ""))
+      setPhoneNumber(e.target.value.replace('/[^a-zA-Zd]/ig', ""))
     }
   }
 
