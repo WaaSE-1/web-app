@@ -2,12 +2,26 @@
 import '../css/Register.css'
 import Request from '../scripts/request'
 import { UserContext } from '../contexts/UserContext.js'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 
 const Register = () => {
 
   const {token, setToken} = useContext(UserContext)
+  const [postcode, setPostCode] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+  const updatePostCode = (e) => {
+    if (e.target.value <= 9999) {
+      setPostCode(e.target.value.replace('/[^a-zA-Z\d]/ig', ""))
+    }
+  }
+
+  const updatePhoneNumber = (e) => {
+    if (e.target.value <= 99999999) {
+      setPhoneNumber(e.target.value.replace('/[^a-zA-Z\d]/ig', ""))
+    }
+  }
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
@@ -35,19 +49,19 @@ const Register = () => {
         <h3>Create an account{token}</h3>
         <div className="input-group">
           <label htmlFor="firstname">First Name:</label><br/>
-          <input type="text" id="firstname" placeholder="John" name="firstname"/><br/><br/>
+          <input type="text" id="firstname" placeholder="John" name="firstname" maxLength="15"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="lastname">Last Name:</label><br/>
-          <input type="text" id="lastname" placeholder="Doe" name="lastname"/><br/><br/>
+          <input type="text" id="lastname" placeholder="Doe" name="lastname" maxLength="15" /><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="email">Email:</label><br/>
-          <input type="email" id="email" placeholder="name@email.com" name="email"/><br/><br/>
+          <input type="email" id="email" placeholder="name@email.com" name="email" maxLength="40"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="phonenumber">Phone Number:</label><br/>
-          <input type="number" id="phone_number" name="phone_number" placeholder="99887766" max="8"/><br/><br/>
+          <input type="text" id="phone_number" maxLength="8" name="phone_number" value={phoneNumber} onChange={(e) => updatePhoneNumber(e)} placeholder="99887766"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="address">Street Address:</label><br/>
@@ -55,7 +69,7 @@ const Register = () => {
         </div>
         <div className="input-group">
           <label htmlFor="postcode">Post Code:</label><br/>
-          <input type="number" max="4" id="postcode" name="postcode" placeholder="2200"/><br/><br/>
+          <input type="text" maxLength="4" id="postcode" name="postcode" placeholder="2200" value={postcode} onChange={(e) => updatePostCode(e)} /><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="password">Password:</label><br/>
