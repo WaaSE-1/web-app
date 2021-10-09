@@ -1,14 +1,17 @@
 async function Request(type, path, body, token){
     
-    const response = await fetch(`https://api-service.azurewebsites.net${path}`, {
+    let requestBody = {
         method: type,
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': token
-        },
-        body: JSON.stringify(body)
-    })
+        }
+    }
+    if (type !== "GET") {
+        requestBody.body = JSON.stringify(body)
+    }
+    const response = await fetch(`https://api-service.azurewebsites.net${path}`, requestBody)
     return await response.json()
 }
 
