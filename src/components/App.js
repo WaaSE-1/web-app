@@ -15,7 +15,7 @@ const App = () => {
   const [cars, setCars] = useState([])
 
   useEffect(() => {
-    Request("GET", "/cars", {}).then(data => {
+    Request("GET", "/cars").then(data => {
       setCars(data)
     })
   }, [])
