@@ -9,10 +9,12 @@ import { useState, useEffect } from 'react';
 import Home from './Home';
 import Request from '../scripts/request'
 import Cars from './Cars'
+
 const App = () => {
   const storedJwt = localStorage.getItem('token')
   const [token, setToken] = useState(storedJwt || null)
   const [cars, setCars] = useState([])
+  const [car, setCar] = useState([])
 
   useEffect(() => {
     Request("GET", "/cars").then(data => {
@@ -27,7 +29,8 @@ const App = () => {
             <UserContext.Provider value={{token, setToken}}>
               <Navbar />
               <Route path="/" exact component={Home}/>
-              <Route path="/cars" render={() => <Cars cars={cars}/>}/>
+              <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
+              <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/user/register" component={token ? () => (<h1>Already Logged in!</h1>) : Register} />
               <Route path="/user/login" component={token ? () => (<h1>Already Logged in!</h1>) : Login} />
               <Route path="/user/account" component={token ? Settings : () => (<h1>Not Logged in!</h1>)} />

@@ -1,0 +1,24 @@
+.cars-single-off-column {
+    width: 35% !important;
+    padding: 24px;
+    text-align: left;
+}
+
+.product-img {
+    width: 100%;
+}
+
+.product-rating {
+    width: 30%;
+    padding: 0px;
+}
+
+.car-title {
+    border-style: solid;
+    padding-bottom: 8px;
+    border-width: 2px !important;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-color: white;
+}

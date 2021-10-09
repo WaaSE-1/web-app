@@ -1,0 +1,15 @@
+.cars-button-list {
+    background: none;
+    color: white;
+}
+
+.cars-menu {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cars-selector {
+    width: 100%;
+}
