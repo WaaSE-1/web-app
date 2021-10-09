@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     Request("GET", "/cars").then(data => {
-      setCars(data)
+      setCars(data[0])
     })
   }, [])
 
