@@ -17,13 +17,17 @@ body {
 }
 
 .App {
+    align-items: center;
     text-align: center;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .App-logo {
     height: 40vmin;
     pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
