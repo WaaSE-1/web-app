@@ -23,9 +23,9 @@ const App = () => {
   return (
       <Router>
         <div className="App">
-          <Navbar />
           <Switch>
             <UserContext.Provider value={{token, setToken}}>
+              <Navbar />
               <Route path="/" exact render={() => <Home cars={cars}/>}/>
               <Route path="/user/register" component={token ? () => (<h1>Already Logged in!</h1>) : Register} />
               <Route path="/user/login" component={token ? () => (<h1>Already Logged in!</h1>) : Login} />
