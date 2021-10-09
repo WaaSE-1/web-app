@@ -1,15 +1,8 @@
 import '../css/Home.css'
-import Car from './Car'
 
-
-const Home = ({cars}) => {
+const Home = () => {
   return (
-    <div className="grid">
-      <div className="cars-selector">
-        {cars.map(car => <Car key={car.id} brand={car.Brand} model={car.model} year={car.year}/>)}
-        </div>
-      <div className="car-details"></div>
-    </div>
+    <h1>Welcome to the Helstern car store!</h1>
   )
 }
 

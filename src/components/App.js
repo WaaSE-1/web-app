@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Home from './Home';
 import Request from '../scripts/request'
-
+import Cars from './Cars'
 const App = () => {
   const storedJwt = localStorage.getItem('token')
   const [token, setToken] = useState(storedJwt || null)
@@ -26,7 +26,8 @@ const App = () => {
           <Switch>
             <UserContext.Provider value={{token, setToken}}>
               <Navbar />
-              <Route path="/" exact render={() => <Home cars={cars}/>}/>
+              <Route path="/" exact component={Home}/>
+              <Route path="/cars" render={() => <Cars cars={cars}/>}/>
               <Route path="/user/register" component={token ? () => (<h1>Already Logged in!</h1>) : Register} />
               <Route path="/user/login" component={token ? () => (<h1>Already Logged in!</h1>) : Login} />
               <Route path="/user/account" component={token ? Settings : () => (<h1>Not Logged in!</h1>)} />

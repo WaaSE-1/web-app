@@ -9,14 +9,14 @@ const Navbar = () => {
   const loggedInNav = (
       <ul className="route">
                 <Link to="/">
-                    <li>Cars</li>
+                    <li>Home</li>
                 </Link>
-                <Link to="/">
-                    <li>Services</li>
+                <Link to="/cars">
+                    <li>Cars</li>
                 </Link>    
                 <h1 className="header-title">Hellstern Cars</h1>
                 <Link to="/">
-                    <li>Purchases</li>
+                    <li>Services</li>
                 </Link>
                 <Link to="/user/account">
                     <li>My Account</li>
@@ -27,19 +27,18 @@ const Navbar = () => {
       const loggedOutNav = (
       <ul className="route">
                 <Link to="/">
-                    <li>Cars</li>
+                    <li>Home</li>
                 </Link>
-                <Link to="/">
-                    <li>Services</li>
+                <Link to="/cars">
+                    <li>Cars</li>
                 </Link>    
                 <h1 className="header-title">Hellstern Cars</h1>
+                <Link to="/user/login">
+                    <li>Login</li>
+                </Link> 
                 <Link to="/user/register">
                     <li>Register</li>
                 </Link>
-                <Link to="/user/login">
-                    <li>Login</li>
-                </Link>    
-                
             </ul>
             )
   return (
