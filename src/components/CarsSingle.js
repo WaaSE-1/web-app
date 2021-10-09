@@ -2,7 +2,7 @@ import '../css/Home.css'
 import '../css/CarsSingle.css'
 
 
-const CarsSingle = ({cars, car, setCar}) => {
+const CarsSingle = ({car}) => {
   
   let grid = (
     <div className="grid">
