@@ -15,7 +15,7 @@ const Settings = () => {
 
   const handleDelete = (e) => {
       e.preventDefault();
-      Request("DELETE", "/users/delete", {"email": jwt(token).email}, 'Bearer ' + token).then(data => {
+      Request("DELETE", "/users", {"email": jwt(token).email}, 'Bearer ' + token).then(data => {
             if (data.success) {
               localStorage.removeItem('token')
               setToken(null)
@@ -25,7 +25,7 @@ const Settings = () => {
 
   const handleUpdate = (e) => {
       e.preventDefault();
-      Request("PUT", '/users/update', Object.fromEntries(new FormData(document.querySelector("form"))), 'Bearer ' + token).then(data => {
+      Request("PUT", '/users', Object.fromEntries(new FormData(document.querySelector("form"))), 'Bearer ' + token).then(data => {
         console.log(data)
             if (data.success) {
               localStorage.setItem('token', data.token.access_token)
