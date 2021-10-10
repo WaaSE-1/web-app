@@ -1,8 +1,13 @@
 import '../css/Home.css'
 
-const Home = () => {
+const Home = ({parts}) => {
   return (
-    <h1>Welcome to the Helstern car store!</h1>
+    <div>
+      <h1>Products!</h1>
+      {/* Retarded fix to a retarded problem. Need to change the key to an actual id. */}
+      {parts.map(part => <p key={part.brand + part.dealersship + part.quantity}>{part.brand} - {part.weight} - {part.dimensions} - {part.material}</p>)}
+    </div>
+    
   )
 }
 

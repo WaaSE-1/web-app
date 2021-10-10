@@ -14,11 +14,15 @@ const App = () => {
   const storedJwt = localStorage.getItem('token')
   const [token, setToken] = useState(storedJwt || null)
   const [cars, setCars] = useState([])
+  const [parts, setParts] = useState([])
   const [car, setCar] = useState([])
 
   useEffect(() => {
     Request("GET", "/cars").then(data => {
       setCars(data[0])
+    })
+    Request("GET", "/products").then(data => {
+      setParts(data)
     })
   }, [])
 
@@ -28,7 +32,7 @@ const App = () => {
           <Switch>
             <UserContext.Provider value={{token, setToken}}>
               <Navbar />
-              <Route path="/" exact component={Home}/>
+              <Route path="/" exact render={() => <Home parts={parts}/>}/>
               <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/user/register" component={token ? () => (<h1>Already Logged in!</h1>) : Register} />
