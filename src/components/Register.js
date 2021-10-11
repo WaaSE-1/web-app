@@ -10,6 +10,8 @@ const Register = () => {
   const {token, setToken} = useContext(UserContext)
   const [postcode, setPostCode] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
 
   const updatePostCode = (e) => {
     if (e.target.value <= 9999) {
@@ -20,6 +22,17 @@ const Register = () => {
   const updatePhoneNumber = (e) => {
     if (e.target.value <= 99999999) {
       setPhoneNumber(e.target.value.replace('/[^a-zA-Zd]/ig', ""))
+    }
+  }
+
+  const updateFirstName = (e) => {
+      if (/^[a-zA-Z\s]*$/.test(e.target.value))
+        setFirstName(e.target.value)
+  }
+
+  const updateLastName = (e) => {
+    if (/^[a-zA-Z\s]*$/.test(e.target.value)) {
+      setLastName(e.target.value)
     }
   }
 
@@ -49,11 +62,11 @@ const Register = () => {
         <h3>Create an account{token}</h3>
         <div className="input-group">
           <label htmlFor="firstname">First Name:</label><br/>
-          <input type="text" id="firstname" placeholder="John" name="firstname" maxLength="15"/><br/><br/>
+          <input type="text" id="firstname" placeholder="John" value={firstName} name="firstname" maxLength="15" onChange={(e) => updateFirstName(e)}/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="lastname">Last Name:</label><br/>
-          <input type="text" id="lastname" placeholder="Doe" name="lastname" maxLength="15" /><br/><br/>
+          <input type="text" id="lastname" placeholder="Doe" name="lastname" maxLength="15" value={lastName} onChange={(e) => updateLastName(e)}/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="email">Email:</label><br/>

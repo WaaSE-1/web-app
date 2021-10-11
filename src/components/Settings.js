@@ -25,7 +25,7 @@ const Settings = () => {
 
   const handleUpdate = (e) => {
       e.preventDefault();
-      Request("PUT", '/users', Object.fromEntries(new FormData(document.querySelector("form"))), 'Bearer ' + token).then(data => {
+      Request("PUT", '/users', {"password":"", ...Object.fromEntries(new FormData(document.querySelector("form")))}, 'Bearer ' + token).then(data => {
         console.log(data)
             if (data.success) {
               localStorage.setItem('token', data.token.access_token)
@@ -62,10 +62,6 @@ const Settings = () => {
             <div className="input-group">
               <label htmlFor="postcode">Post Code:</label><br/>
               <input type="text" id="postcode" name="postcode" value={postcode} onChange={e => setPostcode(e.target.value)}/><br/><br/>
-            </div>
-            <div className="input-group">
-              <label htmlFor="loc_id">Password:</label><br/>
-              <input type="text" id="password" name="password"/><br/><br/>
             </div>
             <input className="button" type="submit" value="Update details" onClick={handleUpdate}></input>
           </form>
