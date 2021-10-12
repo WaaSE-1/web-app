@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext.js'
 import { useContext, useState } from 'react'
 import jwt from 'jwt-decode'
 
-
+// Create function for the register form
 const RegisterForm = () => {
 
   const {token} = useContext(UserContext)
@@ -15,29 +15,34 @@ const RegisterForm = () => {
   const [phoneNumber, setPhoneNumber] = useState(token ? jwt(token).phone_number : '')
   const [address, setAddress] = useState(token ? jwt(token).address : '')
 
+  // Ensure postcode follows standards (only allow numbers and no numbers above 9999)
   const updatePostCode = (e) => {
     if (e.target.value <= 9999) {
       setPostCode(e.target.value.replace('/[^a-zA-Zd]/ig', ""))
     }
   }
 
+  // Ensure phone number is a phone number (only allow numbers)
   const updatePhoneNumber = (e) => {
     if (e.target.value <= 99999999) {
       setPhoneNumber(e.target.value.replace('/[^a-zA-Zd]/ig', ""))
     }
   }
 
+  // Ensure first name consists of only letters from a-z (low or upper case) and include ÆØÅ
   const updateFirstName = (e) => {
       if (/^[a-zA-ZæøåÆØÅ\s]*$/.test(e.target.value))
         setFirstName(e.target.value)
   }
 
+  // Ensure last name consists of only letters from a-z (low or upper case) and include ÆØÅ
   const updateLastName = (e) => {
     if (/^[a-zA-ZæøåÆØÅ\s]*$/.test(e.target.value)) {
       setLastName(e.target.value)
     }
   }
 
+  // Create the text fields for the register-form
   return (
     <div>
       <form className="register-form">

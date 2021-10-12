@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import RegisterForm from './RegisterForm'
 import '../css/Register.css'
 
+// Const keyword is used to define a new function here called Register.
 const Register = () => {
     const {setToken} = useContext(UserContext)
     const handleRegisterSubmit = (e) => {
@@ -27,6 +28,7 @@ const Register = () => {
       })
   }
 
+  // Register or Submit button for the register page.
   return (<div className="register-form">
       <RegisterForm/>
       <button className = "register-form button input-group" type="button" value="Register" onClick={e => handleRegisterSubmit(e)}>Submit</button>

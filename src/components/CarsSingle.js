@@ -1,7 +1,7 @@
 import '../css/Home.css'
 import '../css/CarsSingle.css'
 
-
+// Function for showing a single car display at url/cars/car_id
 const CarsSingle = ({car}) => {
   
   let grid = (

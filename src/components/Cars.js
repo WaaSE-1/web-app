@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 const Cars = ({cars, car, setCar}) => {
   let { id } = useParams();
 
+  // Send the request for get a specific car
   const handleClick = (e, id) => {
       Request("GET", `/cars/${id}`).then(data => {
           setCar(data)
