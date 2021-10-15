@@ -1,5 +1,7 @@
 import Request from '../scripts/request'
-const addEmployee = (e) => {
+
+const EmployeeCreateForm = ({setEmployees}) => {
+    const addEmployee = (e) => {
     e.preventDefault();
     let formData = Object.fromEntries(new FormData(document.querySelector("form")))
         let infoBar = document.getElementsByClassName("info-message")[0]
@@ -14,10 +16,14 @@ const addEmployee = (e) => {
           infoBar.style.visibility = "visible"
           infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
           infoBar.textContent = data.success ? data.success : data.error
+          if (data.success) {
+              Request("GET", "/employees").then(data => {
+                setEmployees(data)
+                })
+          }
       })
 }
 
-const ProductCreateForm = () => {
     return (
     <div className="register-form">
         Add a new employee:
@@ -63,4 +69,4 @@ const ProductCreateForm = () => {
         </form>
     </div>)
 }
-export default ProductCreateForm
+export default EmployeeCreateForm

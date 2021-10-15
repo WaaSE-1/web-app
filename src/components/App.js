@@ -43,7 +43,7 @@ const App = () => {
               <Route path="/products" exact render={() => <Home parts={parts}/>}/>
               <Route path="/products/add" exact render={() => <ProductCreateForm/>}/>
               <Route path="/employees/" exact render={() => <EmployeeDashboard employees={employees} setEmployees={setEmployees}/>}/>
-              <Route path="/employees/add" exact render={() => <EmployeeCreateForm/>}/>
+              <Route path="/employees/add" exact render={() => <EmployeeCreateForm setEmployees={setEmployees}/>}/>
               <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/user/register" component={token ? () => <Redirect to="/" /> : Register} />
