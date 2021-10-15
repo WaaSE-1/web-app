@@ -11,17 +11,14 @@ const CarsSingle = ({car}) => {
             <img alt="product-rating" className="product-rating" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fclipart-library.com%2Fimages_k%2Fstar-image-transparent-background%2Fstar-image-transparent-background-19.png&f=1&nofb=1"/>
 
             <p>Price: {car?.['price per unit']}</p>            
-            <p>Mileage: KM 200.000</p>
-            <p>Year: {car?.year}</p>
-            <p>Color: Grey</p>
-            <p>Fuel type: electric</p>
+            <p>Dealership: {car.dealership}</p>
+            <p>Year: {car.year}</p>
+            <p>Model: {car.model}</p>
+            <p>Quantity: {car.quantity}</p>
         </div>
     <div className="car-details">
-        <h3 className="car-title">BMW 2020</h3>
-        <p>BMW says the iX should go on sale in early 2022 and offer an electric driving range of about 300 miles 
-            per charge. Two electric motors provide full-time all-wheel drive, and carbon-fiber-reinforced plastic 
-            body panels help save weight. The iX's cabin is quite spacious with plenty of modern technology features 
-            on display, including a slick curved digital instrument panel screen. </p>
+        <h3 className="car-title">{car.brand} {car.year}</h3>
+        <p>{car.description ? car.description : <p>No Description available</p>} </p>
     </div>
   </div>
   )

@@ -32,7 +32,8 @@ const App = () => {
           <Switch>
             <UserContext.Provider value={{token, setToken}}>
               <Navbar />
-              <Route path="/" exact render={() => <Home parts={parts}/>}/>
+              <Route path="/" exact render={() => <h1>Welcome to Hellstern auto home page!</h1>}/>
+              <Route path="/products" exact render={() => <Home parts={parts}/>}/>
               <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/user/register" component={token ? () => <Redirect to="/" /> : Register} />
