@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import Home from './Home';
 import Request from '../scripts/request'
 import Cars from './Cars'
+import ProductCreateForm from './ProductCreateForm';
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -34,6 +35,7 @@ const App = () => {
               <Navbar />
               <Route path="/" exact render={() => <h1>Welcome to Hellstern auto home page!</h1>}/>
               <Route path="/products" exact render={() => <Home parts={parts}/>}/>
+              <Route path="/products/add" exact render={() => <ProductCreateForm/>}/>
               <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/user/register" component={token ? () => <Redirect to="/" /> : Register} />
