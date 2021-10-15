@@ -44,6 +44,11 @@ input[type=number] {
     border: 2px solid #df4048;
 }
 
+.delete {
+    border: 0px solid #1e1e2f;
+    background-color: #ff000073;
+}
+
 .input-group label {
     float: left;
     font-weight: 100;

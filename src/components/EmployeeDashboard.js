@@ -15,8 +15,18 @@ const ProductCreateForm = ({employees, setEmployees}) => {
     console.log(employees)
     return (
     <div className="register-form">
-        Employee list:
-        {employees ? employees.map(employee => <div key={employee.id}><p style={{display:"inline-block"}} >{employee.email}</p><button onClick={() => deleteEmployee(employee.email)} className="button">DELETE</button></div>) : <p>No employees to show</p>}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Position</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+            {/* Someone pls extract this mess into another component */}
+            {employees ? employees.map(employee => <tr key={employee.id}><td>{employee.id}</td><td>{employee.firstname}</td><td>{employee.lastname}</td><td>{employee.position}</td><td><p style={{display:"inline-block"}} >{employee.email}</p></td><td><button onClick={() => deleteEmployee(employee.email)} className="button delete">DELETE</button></td></tr>) : <p>No employees to show</p>}
+        </table>
     </div>)
 }
 export default ProductCreateForm
