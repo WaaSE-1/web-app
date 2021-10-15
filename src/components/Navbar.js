@@ -8,7 +8,7 @@ const Navbar = () => {
   const {token} = useContext(UserContext)
   const loggedInNav = (
       <ul className="route">
-                <Link to="/">
+                <Link to="/products">
                     <li>Home</li>
                 </Link>
                 <Link to="/cars">
