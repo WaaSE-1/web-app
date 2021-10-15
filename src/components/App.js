@@ -11,12 +11,14 @@ import Request from '../scripts/request'
 import Cars from './Cars'
 import ProductCreateForm from './ProductCreateForm';
 import EmployeeCreateForm from './EmployeeCreateForm'
+import EmployeeDashboard from './EmployeeDashboard'
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
   const [token, setToken] = useState(storedJwt || null)
   const [cars, setCars] = useState([])
   const [parts, setParts] = useState([])
+  const [employees, setEmployees] = useState([])
   const [car, setCar] = useState([])
 
   useEffect(() => {
@@ -25,6 +27,9 @@ const App = () => {
     })
     Request("GET", "/products").then(data => {
       setParts(data)
+    })
+    Request("GET", "/employees").then(data => {
+      setEmployees(data)
     })
   }, [])
 
@@ -37,6 +42,7 @@ const App = () => {
               <Route path="/" exact render={() => <h1>Welcome to Hellstern auto home page!</h1>}/>
               <Route path="/products" exact render={() => <Home parts={parts}/>}/>
               <Route path="/products/add" exact render={() => <ProductCreateForm/>}/>
+              <Route path="/employees/" exact render={() => <EmployeeDashboard employees={employees}/>}/>
               <Route path="/employees/add" exact render={() => <EmployeeCreateForm/>}/>
               <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
