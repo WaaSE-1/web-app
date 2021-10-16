@@ -1,6 +1,6 @@
 import '../css/Home.css'
 
-const Home = ({parts}) => {
+const Products = ({parts}) => {
   return (
     <div>
       <h1>Products!</h1>
@@ -11,4 +11,4 @@ const Home = ({parts}) => {
   )
 }
 
-export default Home;
+export default Products;

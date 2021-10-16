@@ -6,7 +6,7 @@ import Settings from './Settings'
 import {UserContext} from '../contexts/UserContext.js'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Home from './Home';
+import Products from './Products';
 import Request from '../scripts/request'
 import Cars from './Cars'
 import ProductCreateForm from './ProductCreateForm';
@@ -15,6 +15,9 @@ import EmployeeDashboard from './EmployeeDashboard'
 import ProductsOverview from './ProductsAdminOverview';
 import { Services } from './Services';
 import Garage from './Garage'
+import { Homepage } from './Homepage';
+import EmployeeLogin from './EmployeeLogin'
+import Logout from './Logout'
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -40,23 +43,19 @@ const App = () => {
     })
   }, [])
 
-  useEffect(() => {
-    // Request("GET", "/cars").then(data => {
-    //Placeholder for getting a customer car
-    // })
-  }, [token])
-
   return (
       <Router>
         <div className="App">
           <Switch>
             <UserContext.Provider value={{token, setToken}}>
               <Navbar />
-              <Route path="/" exact render={() => <h1>Welcome to Hellstern auto home page!</h1>}/>
-              <Route path="/products" exact render={() => <Home parts={parts}/>}/>
+              <Route path="/" exact render={() => <Homepage />}/>
+              <Route path="/logout" exact render={() => <Logout setToken={setToken}/>}/>
+              <Route path="/products" exact render={() => <Products parts={parts}/>}/>
               <Route path="/products/overview" exact render={() => <ProductsOverview products={parts} setProducts={setParts}/>}/>
               <Route path="/products/add" exact render={() => <ProductCreateForm/>}/>
               <Route path="/employees/" exact render={() => <EmployeeDashboard employees={employees} setEmployees={setEmployees}/>}/>
+              <Route path="/employees/login" exact render={() => token ? <Redirect to="/" /> : <EmployeeLogin />}/>
               <Route path="/employees/add" exact render={() => <EmployeeCreateForm setEmployees={setEmployees}/>}/>
               <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
