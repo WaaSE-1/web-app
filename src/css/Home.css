@@ -32,14 +32,17 @@
     margin: 1rem;
     color: white;
     font-weight: 200;
+    border-radius: .2857rem;
 }
 
 .grid-car>*:nth-child(1) {
-    width: calc(100% / 3 * 1);
-    background: #27293D;
+    width: calc(100% / 7 * 2);
+    margin-right: 2%;
+    border-radius: .2857rem;
 }
 
 .grid-car>*:nth-child(2) {
-    width: calc(100% / 3 * 2);
+    border-radius: .2857rem;
+    width: calc(100% / 7 * 5);
     background: #27293D;
 }

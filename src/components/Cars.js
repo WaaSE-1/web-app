@@ -32,7 +32,7 @@ const Cars = ({cars, car, setCar}) => {
   return (
     <div className="grid-car">
       <div className="cars-menu">
-        {cars.map(car => <Link key={car.id} to={`/cars/${car.id}`}><button type="button" className="cars-button-list" onClick={(e) => handleClick(e, car.id)}><Car id={car.id} brand={car.company_name} model={car.model} year={car.year}/></button></Link>)}
+        {cars.map(car => <Link key={car.id} to={`/cars/${car.id}`}><button type="button" className="cars-button-list" onClick={(e) => handleClick(e, car.id)}><Car id={car.id} brand={car.company_name} model={car.model} price={car.price}/></button></Link>)}
         </div>
       <div className="car-details">
         {car ? <CarsSingle car={car} setCar={setCar}/> : "Loading"}
