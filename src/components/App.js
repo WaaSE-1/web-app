@@ -13,6 +13,7 @@ import ProductCreateForm from './ProductCreateForm';
 import EmployeeCreateForm from './EmployeeCreateForm'
 import EmployeeDashboard from './EmployeeDashboard'
 import ProductsOverview from './ProductsAdminOverview';
+import { Services } from './Services';
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -21,6 +22,7 @@ const App = () => {
   const [parts, setParts] = useState([])
   const [employees, setEmployees] = useState([])
   const [car, setCar] = useState([])
+  const [services, setServices] = useState([])
 
   useEffect(() => {
     Request("GET", "/cars").then(data => {
@@ -32,7 +34,16 @@ const App = () => {
     Request("GET", "/employees").then(data => {
       setEmployees(data)
     })
+    Request("GET", "/services/requests").then(data => {
+      setServices(data)
+    })
   }, [])
+
+  useEffect(() => {
+    // Request("GET", "/cars").then(data => {
+    //Placeholder for getting a customer car
+    // })
+  }, [token])
 
   return (
       <Router>
@@ -51,6 +62,7 @@ const App = () => {
               <Route path="/user/register" component={token ? () => <Redirect to="/" /> : Register} />
               <Route path="/user/login" component={token ? () => <Redirect to="/" /> : Login} />
               <Route path="/user/account" component={token ? Settings : () => (<Redirect to="/user/login" />)} />
+              <Route path="/user/services" render={token ? () => <Services services={services}/> : () => (<Redirect to="/user/login" />)} />
             </UserContext.Provider>
           </Switch>
         </div>

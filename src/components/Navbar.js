@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li>Products</li>
                 </Link>  
                 <h1 className="header-title">Hellstern Cars</h1>
-                <Link to="/">
+                <Link to="/user/services">
                     <li>Services</li>
                 </Link>
                 <Link to="/products/add">
