@@ -14,6 +14,7 @@ import EmployeeCreateForm from './EmployeeCreateForm'
 import EmployeeDashboard from './EmployeeDashboard'
 import ProductsOverview from './ProductsAdminOverview';
 import { Services } from './Services';
+import Garage from './Garage'
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -63,6 +64,7 @@ const App = () => {
               <Route path="/user/login" component={token ? () => <Redirect to="/" /> : Login} />
               <Route path="/user/account" component={token ? Settings : () => (<Redirect to="/user/login" />)} />
               <Route path="/user/services" render={token ? () => <Services services={services} token={token}/> : () => (<Redirect to="/user/login" />)} />
+              <Route path="/user/garage" render={token ? () => <Garage token={token}/> : () => (<Redirect to="/user/login" />)} />
             </UserContext.Provider>
           </Switch>
         </div>

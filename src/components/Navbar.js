@@ -32,7 +32,10 @@ const Navbar = () => {
                 </Link>
                 <Link to="/user/account">
                     <li>My Account</li>
-                </Link>    
+                </Link>  
+                <Link to="/user/garage">
+                    <li>My Cars</li>
+                </Link>     
                 
             </ul>
             )
