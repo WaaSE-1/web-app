@@ -62,7 +62,7 @@ const App = () => {
               <Route path="/user/register" component={token ? () => <Redirect to="/" /> : Register} />
               <Route path="/user/login" component={token ? () => <Redirect to="/" /> : Login} />
               <Route path="/user/account" component={token ? Settings : () => (<Redirect to="/user/login" />)} />
-              <Route path="/user/services" render={token ? () => <Services services={services}/> : () => (<Redirect to="/user/login" />)} />
+              <Route path="/user/services" render={token ? () => <Services services={services} token={token}/> : () => (<Redirect to="/user/login" />)} />
             </UserContext.Provider>
           </Switch>
         </div>

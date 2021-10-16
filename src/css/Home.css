@@ -25,3 +25,21 @@
     width: calc(100% / 3 * 1);
     background: #27293D;
 }
+
+.grid-car {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    color: white;
+    font-weight: 200;
+}
+
+.grid-car>*:nth-child(1) {
+    width: calc(100% / 3 * 1);
+    background: #27293D;
+}
+
+.grid-car>*:nth-child(2) {
+    width: calc(100% / 3 * 2);
+    background: #27293D;
+}

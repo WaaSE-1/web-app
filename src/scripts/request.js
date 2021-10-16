@@ -1,5 +1,4 @@
 async function Request(type, path, body, token){
-    
     let requestBody = {
         method: type,
         headers: {

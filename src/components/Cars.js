@@ -30,7 +30,7 @@ const Cars = ({cars, car, setCar}) => {
   }, [id, setCar, cars])
 
   return (
-    <div className="grid">
+    <div className="grid-car">
       <div className="cars-menu">
         {cars.map(car => <Link key={car.id} to={`/cars/${car.id}`}><button type="button" className="cars-button-list" onClick={(e) => handleClick(e, car.id)}><Car id={car.id} brand={car.company_name} model={car.model} year={car.year}/></button></Link>)}
         </div>
