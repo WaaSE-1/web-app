@@ -12,6 +12,7 @@ import Cars from './Cars'
 import ProductCreateForm from './ProductCreateForm';
 import EmployeeCreateForm from './EmployeeCreateForm'
 import EmployeeDashboard from './EmployeeDashboard'
+import ProductsOverview from './ProductsAdminOverview';
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -41,6 +42,7 @@ const App = () => {
               <Navbar />
               <Route path="/" exact render={() => <h1>Welcome to Hellstern auto home page!</h1>}/>
               <Route path="/products" exact render={() => <Home parts={parts}/>}/>
+              <Route path="/products/overview" exact render={() => <ProductsOverview products={parts} setProducts={setParts}/>}/>
               <Route path="/products/add" exact render={() => <ProductCreateForm/>}/>
               <Route path="/employees/" exact render={() => <EmployeeDashboard employees={employees} setEmployees={setEmployees}/>}/>
               <Route path="/employees/add" exact render={() => <EmployeeCreateForm setEmployees={setEmployees}/>}/>

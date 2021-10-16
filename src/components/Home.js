@@ -5,7 +5,7 @@ const Home = ({parts}) => {
     <div>
       <h1>Products!</h1>
       {/* Retarded fix to a retarded problem. Need to change the key to an actual id. */}
-      {parts.map(part => <p key={part.brand + part.dealersship + part.quantity}>{part.brand} - {part.weight} - {part.dimensions} - {part.material}</p>)}
+      {parts.map(part => <p key={part.id + part.dealership}>{part.brand} - {part.weight} - {part.dimensions} - {part.material}</p>)}
     </div>
     
   )
