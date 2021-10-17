@@ -19,6 +19,7 @@ import { Homepage } from './Homepage';
 import EmployeeLogin from './EmployeeLogin'
 import Logout from './Logout'
 import CarCreateForm from './CarCreateForm'
+import Particles from 'react-particles-js';
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -46,6 +47,7 @@ const App = () => {
 
   return (
       <Router>
+        <Particles style={{position:"fixed", zIndex : -1, width: "100%"}} />
         <div className="App">
           <Switch>
             <UserContext.Provider value={{token, setToken}}>
