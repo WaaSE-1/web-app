@@ -1,14 +1,28 @@
 import '../css/Home.css'
 
-const Products = ({parts}) => {
-  return (
-    <div>
-      <h1>Products!</h1>
-      {/* Retarded fix to a retarded problem. Need to change the key to an actual id. */}
-      {parts.map(part => <p key={part.id + part.dealership}>{part.brand} - {part.weight} - {part.dimensions} - {part.material}</p>)}
-    </div>
-    
-  )
-}
+import { ProductCustomerRow } from "./ProductCustomer"
 
-export default Products;
+const Products = ({parts, setProducts}) => {
+ return (
+     <div className="register-form">
+        <table>  
+            <tbody>
+                <tr>
+                    <th>Brand</th>
+                    <th>Weight (g)</th>
+                    <th>Dimensions (cm)</th>
+                    <th>Material</th>
+                    <th>Barcode</th>
+                    <th>Serial number</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Dealership</th>
+                    <th>Action</th>
+                </tr>
+                {parts.map(product => <ProductCustomerRow key={product.id + product.dealership} setProducts={setProducts} product={product} products={parts}/>)}
+            </tbody>
+        </table>
+    </div>
+ )
+}
+export default Products
