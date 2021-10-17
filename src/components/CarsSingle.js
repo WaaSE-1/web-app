@@ -14,9 +14,15 @@ const CarsSingle = ({car}) => {
           <p>Year: {car?.year}</p>
           <p>Model: {car?.model}</p>
           <p>Quantity: {car?.quantity}</p>
+          <p>Condition: {car?.condition}</p>
+          <p>Top Speed(km/h): {car?.top_speed}</p>
+          <p>Fuel Type: {car?.fuel_type}</p>
+          <p>Fuel Consumption/km: {car?.fuel_consumption}</p>
+          <p>Maximum Load(kg): {car?.load_capacity_kg}</p>
+          <p>Total Weight(kg): {car?.weight_kg}</p>
       </div>
       <div className="car-details">
-          <h3 className="car-title">{car?.company_name} {car?.year}</h3>
+          <h3 className="car-title">{car?.company_name} - {car?.model} ({car?.year})</h3>
           <p>{car?.description ? car?.description : "No Description available"} </p>
       </div>
     </div>
