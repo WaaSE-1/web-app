@@ -6,6 +6,7 @@ const ProductsOverview = ({products, setProducts}) => {
         <table>  
             <tbody>
                 <tr>
+                    <th>Name</th>
                     <th>Brand</th>
                     <th>Weight (g)</th>
                     <th>Dimensions (cm)</th>
