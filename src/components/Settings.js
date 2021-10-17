@@ -45,11 +45,13 @@ const Settings = () => {
       <div className='register-form'>
         <div className='row'>
           <div className='column'>
+            <h1 className="header-title">Account details</h1>
             <RegisterForm />
             <button className = "register-form button input-group" type="button" onClick={e => handleUpdate(e)}>Update</button>
 
           </div>
           <div className='column'>
+            <h1 className="header-title">Actions</h1>
             <div className='green-column register-form'>
               <input className="button register" type="submit" value="Delete my account!" onClick={handleDelete}></input><br />
               <input className="button" type="submit" value="Logout" onClick={() => {setToken(null); localStorage.removeItem('token')}}></input>
