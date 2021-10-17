@@ -46,3 +46,24 @@
     width: calc(100% / 7 * 5);
     background: #27293D;
 }
+
+.single-off-column {
+    width: 35% !important;
+    padding: 24px;
+    text-align: left;
+}
+
+.home-details {
+    text-align: right;
+}
+
+.grid-car2 {
+    padding: 34px;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    margin-left: 50px;
+    color: white;
+    font-weight: 200;
+    border-radius: .2857rem;
+}
