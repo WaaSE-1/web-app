@@ -59,7 +59,7 @@ const RegisterForm = () => {
           <input type="email" id="email" placeholder="name@email.com" name="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength="40"/><br/><br/>
         </div>
         <div className="input-group">
-          <label htmlFor="phonenumber">Phone Number:</label><br/>
+          <label htmlFor="phone_number">Phone Number:</label><br/>
           <input type="text" id="phone_number" maxLength="8" name="phone_number" value={phoneNumber} onChange={(e) => updatePhoneNumber(e)} placeholder="99887766"/><br/><br/>
         </div>
         <div className="input-group">

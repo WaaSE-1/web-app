@@ -47,7 +47,7 @@ const ProductCreateForm = () => {
           <input type="text" id="serial_number" name="serial_number" placeholder="SKA52223"/><br/><br/>
         </div>
         <div className="input-group">
-          <label htmlFor="serial_number">Price:</label><br/>
+          <label htmlFor="price">Price:</label><br/>
           <input type="number" id="price" name="price" placeholder="399.99"/><br/><br/>
         </div>
         <p className="info-message">Hey</p>
