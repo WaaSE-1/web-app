@@ -22,7 +22,7 @@ const CarsSingle = ({car}) => {
           <p>Total Weight(kg): {car?.weight_kg}</p>
       </div>
       <div className="car-details">
-          <h3 className="car-title">{car?.company_name} {car?.year}</h3>
+          <h3 className="car-title">{car?.company_name} - {car?.model} ({car?.year})</h3>
           <p>{car?.description ? car?.description : "No Description available"} </p>
       </div>
     </div>
