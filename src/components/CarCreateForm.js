@@ -4,7 +4,6 @@ const CarCreateForm = ({token}) => {
     const createCar = (e) => {
         e.preventDefault()
         let formData = {...Object.fromEntries(new FormData(document.querySelector("form")))}
-        console.log(formData)
         let infoBar = document.getElementsByClassName("info-message")[0]
         if (Object.values(formData).some(e => e === '')) {
             console.log('empty', Object.values(formData))
@@ -18,7 +17,6 @@ const CarCreateForm = ({token}) => {
                 infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
                 infoBar.textContent = data.success ? data.success : data.error
           }
-          console.log(data)
       })
     }
     return (<div className="register-form">
