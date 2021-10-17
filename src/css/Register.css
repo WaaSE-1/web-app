@@ -50,6 +50,11 @@ select {
     background-color: #ff000073;
 }
 
+.buy {
+    border: 0px solid #1e1e2f;
+    background-color: #0c4713;
+}
+
 .input-group label {
     float: left;
     font-weight: 100;

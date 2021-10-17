@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Request from '../scripts/request';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import Loader from "react-loader-spinner";
 
 const Cars = ({cars, car, setCar}) => {
   let { id } = useParams();
@@ -32,10 +33,10 @@ const Cars = ({cars, car, setCar}) => {
   return (
     <div className="grid-car">
       <div className="cars-menu">
-        {cars.map(car => <Link key={car.id} to={`/cars/${car.id}`}><button type="button" className="cars-button-list" onClick={(e) => handleClick(e, car.id)}><Car id={car.id} brand={car.company_name} model={car.model} price={car.price}/></button></Link>)}
+        {cars.length === 0 ? <Loader color="#27293D" type="ThreeDots"/> : cars.map(car => <Link key={car.id} to={`/cars/${car.id}`}><button type="button" className="cars-button-list" onClick={(e) => handleClick(e, car.id)}><Car id={car.id} brand={car.company_name} model={car.model} price={car.price}/></button></Link>)}
         </div>
-      <div className="car-details">
-        {car ? <CarsSingle car={car} setCar={setCar}/> : "Loading"}
+      <div className={cars.length === 0 ? "" : "car-details"}>
+        {cars.length === 0 ? <Loader color="#27293D" type="ThreeDots"/> : (car ? <CarsSingle car={car} setCar={setCar}/> : "Loading")}
       </div>
     </div>
   )

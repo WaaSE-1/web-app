@@ -44,6 +44,9 @@
 .grid-car>*:nth-child(2) {
     border-radius: .2857rem;
     width: calc(100% / 7 * 5);
+}
+
+.car-details {
     background: #27293D;
 }
 

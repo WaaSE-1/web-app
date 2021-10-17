@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import Request from '../scripts/request'
 import jwt from 'jwt-decode'
+import { CarDetails } from './CarDetails'
+import Loader from "react-loader-spinner";
 
 const Garage = ({token}) => {
     const [cars, setCars] = useState([])
@@ -48,28 +50,12 @@ const Garage = ({token}) => {
     return (
         <div className="grid register-form">
             <div className="cars">
-                 <h3><u>Your Cars</u></h3>
-                <table>
-                    <thead>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Year</th>
-                        <th>License Plate</th>
-                        <th>VIN</th>
-                    </thead>
-                    <tbody>
-                        {cars.map(car => <tr key={car.vehicle_ident_number}>
-                            <td>{car.company_name}</td>
-                            <td>{car.model}</td>
-                            <td>{car.year}</td>
-                            <td>{car.license_plate}</td>
-                            <td>{car.vehicle_ident_number}</td>
-                        </tr>)}
-                    </tbody>
-                </table>
+                 <h1 className="header-title">Your cars</h1>
+                {cars.length === 0 ? <Loader color="#1e1e2f" type="ThreeDots"/> : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
             </div>
             <div className="addCar">
-                Add a new car
+                <h1 className="header-title">Add a new car</h1>
+                
                 <form>
                     <div className="input-group">
                         <label htmlFor="manufacturer">Manufacturer:</label><br/>
@@ -81,15 +67,15 @@ const Garage = ({token}) => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="year">Year:</label><br/>
-                        <input type="number" id="year" name="year" placeholder="year"/><br/><br/>
+                        <input type="number" id="year" name="year" placeholder="2021"/><br/><br/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="VIN">VIN number:</label><br/>
                         <input type="text" id="VIN" name="VIN" placeholder="SKAP5000TES"/><br/><br/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="license_plate">License plate:</label><br/>
-                        <input type="text" id="license_plate" name="license_plate" placeholder="BMW"/><br/><br/>
+                        <label htmlFor="manufacturer">License plate:</label><br/>
+                        <input type="text" id="manufacturer" name="license_plate" placeholder="ES El5I"/><br/><br/>
                     </div>
                     <p className="info-message">Hey</p>
                     <button type="button" className="button" onClick={(e) => createCarForUser(e)}>Add a car</button>
