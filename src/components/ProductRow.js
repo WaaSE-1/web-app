@@ -1,12 +1,12 @@
 import Request from "../scripts/request"
 
 export const ProductRow = ({product, products, setProducts}) => {
-    const deleteProduct = (e, id, dealership) => {
+    const deleteProduct = (e, id) => {
         e.preventDefault()
-        Request("DELETE", "/products/", {"part": id, "dealership": dealership}).then(data => {
+        Request("DELETE", "/products/", {"part": id}).then(data => {
             console.log(data)
             if (data.success)
-                setProducts(products.filter(product => !(product.id === id && product.dealership === dealership)))
+                setProducts(products.filter(product => !(product.id === id)))
         })
     }
     return (
@@ -21,7 +21,7 @@ export const ProductRow = ({product, products, setProducts}) => {
                 <td>{product.quantity}</td>
                 <td>{product["price per unit"]}</td>
                 <td>{product.dealership}</td>
-                <td><button className="button delete" onClick={(e) => deleteProduct(e, product.id, product.dealership)}>DELETE</button></td>
+                <td><button className="button delete" onClick={(e) => deleteProduct(e, product.id)}>DELETE</button></td>
             </tr>
             )      
 }

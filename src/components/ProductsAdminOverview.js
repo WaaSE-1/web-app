@@ -18,7 +18,7 @@ const ProductsOverview = ({products, setProducts}) => {
                     <th>Dealership</th>
                     <th>Action</th>
                 </tr>
-                {products.map(product => <ProductRow key={product.id + product.dealership} setProducts={setProducts} product={product} products={products}/>)}
+                {products.map(product => <ProductRow key={product.id} setProducts={setProducts} product={product} products={products}/>)}
             </tbody>
         </table>
     </div>
