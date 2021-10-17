@@ -1,10 +1,10 @@
 import '../css/Home.css'
-
+import Loader from "react-loader-spinner";
 import { ProductCustomerRow } from "./ProductCustomer"
 
 const Products = ({parts, setProducts}) => {
  return (
-     <div className="register-form">
+     parts.length === 0 ? <Loader color="#27293D" type="ThreeDots"/> : (<div className="register-form">
         <table>  
             <tbody>
                 <tr>
@@ -22,7 +22,7 @@ const Products = ({parts, setProducts}) => {
                 {parts.map(product => <ProductCustomerRow key={product.id + product.dealership} setProducts={setProducts} product={product} products={parts}/>)}
             </tbody>
         </table>
-    </div>
+    </div>) 
  )
 }
 export default Products

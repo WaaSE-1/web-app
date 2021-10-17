@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import Request from '../scripts/request'
 import { CarDetails } from './CarDetails'
+import Loader from "react-loader-spinner";
 
 export const Services = ({services, token}) => {
     const [cars, setCars] = useState([])
@@ -13,18 +14,19 @@ export const Services = ({services, token}) => {
         <div className="grid register-form">
             <div className="services">
                 <h1 className="header-title">Our Services</h1>
-                {services.map(service => <p key={service.dealership + service.service_type}>Service: {service.service_type} - DKK {service.price} - At: {service.dealership}</p>)}
+                {services.length !== 0 ? services.map(service => <p key={service.dealership + service.service_type}>Service: {service.service_type} - DKK {service.price} - At: {service.dealership}</p>) : <Loader color="#1e1e2f" type="ThreeDots"/>}
             </div>
             <div className="customer-section">
                 <div className="customer-cars">
                     <h1 className="header-title">Your cars</h1>
-                    {cars.length === 0 ? "You don't have any cars in your garage." : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
+                    {console.log(cars)}
+                    {cars.length === 0 ? <Loader color="#1e1e2f" type="ThreeDots"/> : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />) }
                 </div>
             </div>
             <div className="book-a-service">
-                {cars.length === 0 ? "Add a car before creating a service request" : <div className="customer-cars">
+                <div className="customer-cars">
                     <h1 className="header-title">Book a service</h1>
-                    <form >
+                    {cars.length !== 0 && services.length !== 0 ? (<form >
                         <div className="input-group">
                             <label htmlFor="services">Service type</label>
                             <select name="services" id="services">
@@ -40,8 +42,8 @@ export const Services = ({services, token}) => {
                         <div className="input-group">
                             <button type="button" className="button buy" onClick={() => alert("Not implemented")}>Create service request</button>
                         </div>
-                    </form>
-                </div>}
+                    </form>) : cars.length === 0 && services.length > 0 ? "No cars available!" : <Loader color="#1e1e2f" type="ThreeDots"/>}
+                </div>
             </div>
             
         </div>

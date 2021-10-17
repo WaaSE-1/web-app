@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 import Request from '../scripts/request'
 import jwt from 'jwt-decode'
 import { CarDetails } from './CarDetails'
+import Loader from "react-loader-spinner";
+
 const Garage = ({token}) => {
     const [cars, setCars] = useState([])
 
@@ -49,7 +51,7 @@ const Garage = ({token}) => {
         <div className="grid register-form">
             <div className="cars">
                  <h1 className="header-title">Your cars</h1>
-                {cars.length === 0 ? "You don't have any cars in your garage." : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
+                {cars.length === 0 ? <Loader color="#1e1e2f" type="ThreeDots"/> : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
             </div>
             <div className="addCar">
                 <h1 className="header-title">Add a new car</h1>
