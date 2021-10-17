@@ -24,3 +24,10 @@
     width: 100%;
     border-radius: .2857rem;
 }
+
+.car-details {
+    background: #1e1e2f;
+    padding: 1px 0px;
+    border-radius: .2857rem;
+    margin-bottom: 15px;
+}

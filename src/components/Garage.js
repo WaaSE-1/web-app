@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Request from '../scripts/request'
 import jwt from 'jwt-decode'
-
+import { CarDetails } from './CarDetails'
 const Garage = ({token}) => {
     const [cars, setCars] = useState([])
 
@@ -48,11 +48,12 @@ const Garage = ({token}) => {
     return (
         <div className="grid register-form">
             <div className="cars">
-                 Your cars: 
-                {cars.map(car => <p key={car.vehicle_ident_number}>{car.company_name}, {car.model}, {car.year}, {car.license_plate}, {car.vehicle_ident_number}</p>)}
+                 <h1 className="header-title">Your cars</h1>
+                {cars.length === 0 ? "You don't have any cars in your garage." : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
             </div>
             <div className="addCar">
-                Add a new car
+                <h1 className="header-title">Add a new car</h1>
+                
                 <form>
                     <div className="input-group">
                         <label htmlFor="manufacturer">Manufacturer:</label><br/>
@@ -64,7 +65,7 @@ const Garage = ({token}) => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="year">Year:</label><br/>
-                        <input type="number" id="year" name="year" placeholder="year"/><br/><br/>
+                        <input type="number" id="year" name="year" placeholder="2021"/><br/><br/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="VIN">VIN number:</label><br/>
@@ -72,7 +73,7 @@ const Garage = ({token}) => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="manufacturer">License plate:</label><br/>
-                        <input type="text" id="manufacturer" name="license_plate" placeholder="BMW"/><br/><br/>
+                        <input type="text" id="manufacturer" name="license_plate" placeholder="ES El5I"/><br/><br/>
                     </div>
                     <p className="info-message">Hey</p>
                     <button type="button" className="button" onClick={(e) => createCarForUser(e)}>Add a car</button>

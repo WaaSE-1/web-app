@@ -22,7 +22,7 @@ export const Services = ({services, token}) => {
                 </div>
             </div>
             <div className="book-a-service">
-                <div className="customer-cars">
+                {cars.length === 0 ? "Add a car before creating a service request" : <div className="customer-cars">
                     Book a service
                     <form>
                         <label htmlFor="services">Service type:</label>
@@ -34,7 +34,7 @@ export const Services = ({services, token}) => {
                             {cars.map(car => <option key={car.vehicle_ident_number} value={car.company_name + " " + car.model + ", " + car.license_plate}>{car.company_name + " " + car.model + ", " + car.license_plate}</option>)}
                         </select>
                     </form>
-                </div>
+                </div>}
             </div>
             
         </div>
