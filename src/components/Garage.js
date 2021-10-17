@@ -48,8 +48,25 @@ const Garage = ({token}) => {
     return (
         <div className="grid register-form">
             <div className="cars">
-                 Your cars: 
-                {cars.map(car => <p key={car.vehicle_ident_number}>{car.company_name}, {car.model}, {car.year}, {car.license_plate}, {car.vehicle_ident_number}</p>)}
+                 <h3><u>Your Cars</u></h3>
+                <table>
+                    <thead>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>License Plate</th>
+                        <th>VIN</th>
+                    </thead>
+                    <tbody>
+                        {cars.map(car => <tr key={car.vehicle_ident_number}>
+                            <td>{car.company_name}</td>
+                            <td>{car.model}</td>
+                            <td>{car.year}</td>
+                            <td>{car.license_plate}</td>
+                            <td>{car.vehicle_ident_number}</td>
+                        </tr>)}
+                    </tbody>
+                </table>
             </div>
             <div className="addCar">
                 Add a new car
