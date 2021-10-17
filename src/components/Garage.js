@@ -60,7 +60,7 @@ const Garage = ({token}) => {
                         <input type="text" id="manufacturer" name="manufacturer" placeholder="Tesla"/><br/><br/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="manufacturer">Model:</label><br/>
+                        <label htmlFor="model">Model:</label><br/>
                         <input type="text" id="model" name="model" placeholder="Model 3"/><br/><br/>
                     </div>
                     <div className="input-group">

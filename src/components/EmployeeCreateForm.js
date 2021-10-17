@@ -33,7 +33,7 @@ const EmployeeCreateForm = ({setEmployees}) => {
           <input type="number" id="dealership_id" placeholder="1" name="dealership_id" maxLength="10"/><br/><br/>
         </div>
         <div className="input-group">
-          <label htmlFor="weight">Department ID:</label><br/>
+          <label htmlFor="department_id">Department ID:</label><br/>
           <input type="number" id="department_id" maxLength="8" name="department_id" placeholder="1"/><br/><br/>
         </div>
         <div className="input-group">
