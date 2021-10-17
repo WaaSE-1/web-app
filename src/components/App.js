@@ -18,6 +18,7 @@ import Garage from './Garage'
 import { Homepage } from './Homepage';
 import EmployeeLogin from './EmployeeLogin'
 import Logout from './Logout'
+import CarCreateForm from './CarCreateForm'
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -57,18 +58,21 @@ const App = () => {
               <Route path="/employees/" exact render={() => <EmployeeDashboard employees={employees} setEmployees={setEmployees}/>}/>
               <Route path="/employees/login" exact render={() => token ? <Redirect to="/" /> : <EmployeeLogin />}/>
               <Route path="/employees/add" exact render={() => <EmployeeCreateForm setEmployees={setEmployees}/>}/>
-              <Route path="/cars/:id" render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
-              <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
+              <Switch>
+                <Route path="/cars/add" exact render={() => <CarCreateForm token={token}/>}/>
+                <Route path="/cars/:id" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
+                <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
+              </Switch>
               <Route path="/user/register" component={token ? () => <Redirect to="/" /> : Register} />
               <Route path="/user/login" component={token ? () => <Redirect to="/" /> : Login} />
               <Route path="/user/account" component={token ? Settings : () => (<Redirect to="/user/login" />)} />
               <Route path="/user/services" render={token ? () => <Services services={services} token={token}/> : () => (<Redirect to="/user/login" />)} />
               <Route path="/user/garage" render={token ? () => <Garage token={token}/> : () => (<Redirect to="/user/login" />)} />
-            </UserContext.Provider>
+              </UserContext.Provider>
           </Switch>
         </div>
       </Router>
-    
+
   );
 }
 
