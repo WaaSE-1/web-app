@@ -37,8 +37,8 @@ const Navbar = () => {
                 <Link to="/products/add">
                     <li>Add Product</li>
                 </Link>
-                <Link to="/products/add">
-                    <li>----</li>
+                <Link to="/cars/add">
+                    <li>Add Car</li>
                 </Link>
                 <h1 className="header-title">Hellstern Cars</h1> 
                 <Link to="/products/overview">
