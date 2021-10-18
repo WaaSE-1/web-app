@@ -14,7 +14,7 @@ export const Homepage = () => {
             </p><h1 className="header-title">Our Values</h1>
             At Hellstern Auto, we are proud of the work that we do.<br /> 
             We will ensure that you will be satisfied with your purchase.
-            <div className="grid">
+            <div className="grid" style={{width: "800px", margin: "40px auto 0px auto"}}>
                 <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{ marginTop:"30%"}}>
                         <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
