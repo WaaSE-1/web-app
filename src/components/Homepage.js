@@ -6,19 +6,36 @@ import '../css/CarsSingle.css'
 export const Homepage = () => {
 
     return (
-        <div className="register-form">
-            <img width="1000" height="400" alt="
-            " src="https://media.istockphoto.com/vectors/black-friday-luxury-sale-banner-black-background-with-papercut-layers-vector-id1048020866?k=20&m=1048020866&s=170667a&w=0&h=RwYyX1WmmGk3cbfnR-7Re8KC9bVamYaOXg6qsH_yfCE="/>
-            <h2> See our products under car and services section! The sales will take place on the Black Friday weekend only. </h2>
-            <div className="grid-car2">
-                <img width="400" height="180" alt="" src="https://www.porsche.dk/globalassets/modeller/cayenne/de-nye-cayenne-coupe/galleri/galleri29_stor.jpg" />
-                    <h4> Porche Cayenne-e-hybrid-coupe. Our new arrival. Make sure to check it out! A lot of horse power out there! </h4>
+        <div className="register-form ">
+            <h1 className="header-title">Hellstern Auto</h1>
+            <p><i class="fas fa-hand-sparkles" style={{color: "green"}} ></i> Welcome to our car dealership. <i class="fas fa-hand-sparkles" style={{color: "green"}} ></i><br /> Here you can find the most reliable cars and their parts.<br /> 
+                You can create an account, add a car to your profile, and request a service<br /> 
+                to be done to your vehicle by one of our trained employees.
+            </p><h1 className="header-title">Our Values</h1>
+            At Hellstern Auto, we are proud of the work that we do.<br /> 
+            We will ensure that you will be satisfied with your purchase.
+            <div className="grid">
+                <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
+                    <div className="inner" style={{ marginTop:"30%"}}>
+                        <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
+                        <p>Best car selection</p>
+                    </div>
+                </div>
+                
+                <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
+                    <div className="inner" style={{marginTop:"30%"}}>
+                        <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
+                        <p>Cheapest prices</p>
+                    </div>
+                </div>
+                <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
+                    <div className="inner" style={{ marginTop:"30%"}}>
+                        <i style={{fontSize: "30px"}} class="fas fa-concierge-bell"></i> 
+                        <p>Fastest car repairs</p>
+                    </div>
+                </div>
                 
             </div>
-
-
-                
-                
         </div>
     )
 }
