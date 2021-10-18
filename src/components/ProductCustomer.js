@@ -1,6 +1,7 @@
 export const ProductCustomerRow = ({product, products, setProducts}) => {
     return (
             <tr>
+                <td>{product.name}</td>
                 <td>{product.brand}</td>
                 <td>{product.weight}</td>
                 <td>{product.dimensions}</td>

@@ -15,20 +15,20 @@ export const Homepage = () => {
             At Hellstern Auto, we are proud of the work that we do.<br /> 
             We will ensure that you will be satisfied with your purchase.
             <div className="grid" style={{width: "800px", margin: "40px auto 0px auto"}}>
-                <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
+                <div className="field" style={{ border: "1px solid rgb(255 255 255)", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{ marginTop:"30%"}}>
                         <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
                         <p>Best car selection</p>
                     </div>
                 </div>
                 
-                <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
+                <div className="field" style={{ border: "1px solid rgb(255 255 255)", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{marginTop:"30%"}}>
                         <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
                         <p>Cheapest prices</p>
                     </div>
                 </div>
-                <div className="field" style={{ border: "5px solid #1E1E2F", width: "200px", height: "200px", borderRadius: "50%"}}>
+                <div className="field" style={{ border: "1px solid rgb(255 255 255)", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{ marginTop:"30%"}}>
                         <i style={{fontSize: "30px"}} class="fas fa-concierge-bell"></i> 
                         <p>Fastest car repairs</p>

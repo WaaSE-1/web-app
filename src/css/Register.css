@@ -5,7 +5,8 @@
     padding: 20px;
     margin: 0 auto;
     box-sizing: border-box;
-    border-radius: .2857rem
+    border-radius: .2857rem;
+    min-height: 590px
 }
 
 input[type=text],
