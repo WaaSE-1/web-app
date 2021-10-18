@@ -15,8 +15,6 @@ const Garage = ({token}) => {
     
     const createCarForUser = (e) => {
         e.preventDefault()
-        console.log(token)
-        console.log(jwt(token))
         let formData = {"price": 0, ...Object.fromEntries(new FormData(document.querySelector("form")))}
         let infoBar = document.getElementsByClassName("info-message")[0]
         console.log(formData)
@@ -28,8 +26,6 @@ const Garage = ({token}) => {
         }
         Request("POST", "/cars/", formData, 'Bearer ' + token).then(data => {
           if(data.success){
-              console.log(data)
-
               formData = {"customer_id": jwt(token).id, "vehicle_id": data.id, ...formData}
               console.log('new form', formData)
                Request("POST", "/users/garage", formData, 'Bearer ' + token).then(data => {

@@ -20,6 +20,7 @@ import EmployeeLogin from './EmployeeLogin'
 import Logout from './Logout'
 import CarCreateForm from './CarCreateForm'
 import Particles from 'react-particles-js';
+import jwt from 'jwt-decode'
 
 const App = () => {
   const storedJwt = localStorage.getItem('token')
@@ -165,13 +166,13 @@ const App = () => {
               <Route path="/" exact render={() => <Homepage />}/>
               <Route path="/logout" exact render={() => <Logout setToken={setToken}/>}/>
               <Route path="/products" exact render={() => <Products parts={parts}/>}/>
-              <Route path="/products/overview" exact render={() => <ProductsOverview products={parts} setProducts={setParts}/>}/>
-              <Route path="/products/add" exact render={() => <ProductCreateForm/>}/>
-              <Route path="/employees/" exact render={() => <EmployeeDashboard employees={employees} setEmployees={setEmployees}/>}/>
+              <Route path="/products/overview" exact render={() => jwt(token)["position"] ? <ProductsOverview products={parts} setProducts={setParts}/> : "You shall not pass"}/>
+              <Route path="/products/add" exact render={() => jwt(token)["position"] ? <ProductCreateForm/> : "You shall not pass!"}/>
+              <Route path="/employees/" exact render={() => jwt(token)["position"] === 1 ? <EmployeeDashboard employees={employees} setEmployees={setEmployees}/> : "You shall not pass!"}/>
               <Route path="/employees/login" exact render={() => token ? <Redirect to="/" /> : <EmployeeLogin />}/>
-              <Route path="/employees/add" exact render={() => <EmployeeCreateForm setEmployees={setEmployees}/>}/>
+              <Route path="/employees/add" exact render={() => jwt(token)["position"] === 1 ? <EmployeeCreateForm setEmployees={setEmployees}/> : "You shall not pass!"}/>
               <Switch>
-                <Route path="/cars/add" exact render={() => <CarCreateForm token={token}/>}/>
+                <Route path="/cars/add" exact render={() => jwt(token)["position"] ? <CarCreateForm token={token}/> : "You shall not pass"}/>
                 <Route path="/cars/:id" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
                 <Route path="/cars" exact render={() => <Cars cars={cars} car={car} setCar={setCar}/>}/>
               </Switch>

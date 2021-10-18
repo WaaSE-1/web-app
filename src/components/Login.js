@@ -32,6 +32,7 @@ const Login = () => {
 
   return ( 
       <form className="register-form">
+        <h1 className="header-title">Customer Login</h1>
         <div className="input-group">
           <label htmlFor="email">Email</label><br />
           <input type="text" id="email" name="email" placeholder="name@email.com" required/><br />
