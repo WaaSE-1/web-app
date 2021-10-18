@@ -28,16 +28,21 @@ const createServiceRequest = (e) => {
 
 export const Services = ({services, token}) => {
     const [cars, setCars] = useState([])
+    const [history, setHistory] = useState([])
     useEffect(() => {
       Request("GET", "/users/garage", {}, 'Bearer ' + token).then(data => {
           setCars(data)
+      })
+      Request("GET", "/services/requests/history", {}, 'Bearer ' + token).then(data => {
+          setHistory(data)
+          console.log(data)
       })
     }, [token])
     return (
         <div className="grid register-form">
             <div className="services">
-                <h1 className="header-title">Our Services</h1>
-                {services.length !== 0 ? services.map(service => <p key={service.dealership + service.service_type}>Service: {service.service_type} - DKK {service.price} - At: {service.dealership}</p>) : <Loader color="#1e1e2f" type="ThreeDots"/>}
+                <h1 className="header-title">Your history</h1>
+                {history.length === 0 ? services.length > 0 ? "No service history!" : <Loader color="#1e1e2f" type="ThreeDots"/> : history.map(item => <p key={item.id}>{item.service_type} ({item.service_date}) - {item.VIN} by {item.Mechanic}</p>)}
             </div>
             <div className="customer-section">
                 <div className="customer-cars">
