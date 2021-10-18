@@ -3,7 +3,7 @@ import Request from "../scripts/request"
 export const ProductRow = ({product, products, setProducts}) => {
     const deleteProduct = (e, id) => {
         e.preventDefault()
-        Request("DELETE", "/products/", {"part": id}).then(data => {
+        Request("DELETE", "/products/", {"id": id}).then(data => {
             console.log(data)
             if (data.success)
                 setProducts(products.filter(product => !(product.id === id)))
