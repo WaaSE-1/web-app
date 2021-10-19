@@ -4,38 +4,46 @@ import { CarDetails } from './CarDetails'
 import Loader from "react-loader-spinner";
 
 
-const createServiceRequest = (e) => {
-    e.preventDefault()
-    
-    let formData = Object.fromEntries(new FormData(document.querySelector("form")))
-    let infoBar = document.getElementsByClassName("info-message")[0]
-    const currentDate = new Date()
-    formData = {"date": currentDate.toISOString().split('T')[0], ...formData}
-    console.log(formData)
-    if (Object.values(formData).some(e => e === '')) {
-            console.log('empty', Object.values(formData))
-            infoBar.style.visibility = "visible"
-            infoBar.textContent = "Please fill out all of the fields!"
-            return
-        }
 
-    Request("POST", "/services/requests", formData).then(data => {
-          infoBar.style.visibility = "visible"
-          infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
-          infoBar.textContent = data.success ? data.success : data.error
-      })
-} 
 
 export const Services = ({services, token}) => {
     const [cars, setCars] = useState([])
     const [history, setHistory] = useState([])
+
+
+    const createServiceRequest = (e) => {
+        e.preventDefault()
+        
+        let formData = Object.fromEntries(new FormData(document.querySelector("form")))
+        let infoBar = document.getElementsByClassName("info-message")[0]
+        const currentDate = new Date()
+        formData = {"date": currentDate.toISOString().split('T')[0], ...formData}
+        console.log(formData)
+        if (Object.values(formData).some(e => e === '')) {
+                console.log('empty', Object.values(formData))
+                infoBar.style.visibility = "visible"
+                infoBar.textContent = "Please fill out all of the fields!"
+                return
+            }
+
+        Request("POST", "/services/requests", formData).then(data => {
+            infoBar.style.visibility = "visible"
+            infoBar.style.color = data.success ? "#5ffd5f" : "#ff9999"
+            infoBar.textContent = data.success ? data.success : data.error
+            if (data.success) {
+                        Request("GET", "/services/requests/history", {}, 'Bearer ' + token).then(data => {
+                            setHistory(data)
+                        })
+            }
+        })
+    } 
+
     useEffect(() => {
       Request("GET", "/users/garage", {}, 'Bearer ' + token).then(data => {
           setCars(data)
       })
       Request("GET", "/services/requests/history", {}, 'Bearer ' + token).then(data => {
           setHistory(data)
-          console.log(data)
       })
     }, [token])
     return (

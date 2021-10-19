@@ -47,7 +47,7 @@ const Settings = () => {
           <div className='column'>
             <h1 className="header-title">Account details</h1>
             <RegisterForm />
-            <button className = "register-form button input-group" type="button" onClick={e => handleUpdate(e)}>Update</button>
+            <button className = "button input-group" type="button" onClick={e => handleUpdate(e)}>Update</button>
 
           </div>
           <div className='column'>
