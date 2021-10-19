@@ -27,8 +27,8 @@ const ProductCreateForm = () => {
                     <input type="text" id="name" placeholder="Catalytic Converter" name="name" maxLength="45"/><br/><br/>
                 </div>
                 <div className="input-group">
-                    <label htmlFor="Description">Description:</label><br/>
-                    <input type="text" id="Description" placeholder="Universal catalytic converter for use in pet..." name="Description" maxLength="500"/><br/><br/>
+                    <label htmlFor="description">Description:</label><br/>
+                    <input type="text" id="description" placeholder="Universal catalytic converter for use in pet..." name="description" maxLength="500"/><br/><br/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="Manufacturer">Manufacturer:</label><br/>
