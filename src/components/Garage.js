@@ -59,7 +59,7 @@ const Garage = ({token}) => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="model">Model:</label><br/>
-                        <input type="text" id="model" name="model" placeholder="Model 3"/><br/><br/>
+                        <input type="text" id="model" maxLength="45" name="model" placeholder="Model 3"/><br/><br/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="year">Year:</label><br/>
@@ -67,11 +67,11 @@ const Garage = ({token}) => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="VIN">VIN number:</label><br/>
-                        <input type="text" id="VIN" name="VIN" placeholder="SKAP5000TES"/><br/><br/>
+                        <input type="text" id="VIN" maxLength="17" name="VIN" placeholder="SKAP5000TES"/><br/><br/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="manufacturer">License plate:</label><br/>
-                        <input type="text" id="manufacturer" name="license_plate" placeholder="ES El5I"/><br/><br/>
+                        <input type="text" id="manufacturer" maxLength="10" name="license_plate" placeholder="ES El5I"/><br/><br/>
                     </div>
                     <p className="info-message">Hey</p>
                     <button type="button" className="button" onClick={(e) => createCarForUser(e)}>Add a car</button>

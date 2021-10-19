@@ -40,19 +40,19 @@ const ProductCreateForm = () => {
                 </div>
                 <div className="input-group">
                     <label htmlFor="dimensions">Dimensions (cm):</label><br/>
-                    <input type="text" id="dimensions" name="dimensions" placeholder="32x23x12"/><br/><br/>
+                    <input type="text" id="dimensions" maxLength="45" name="dimensions" placeholder="32x23x12"/><br/><br/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="material">Material:</label><br/>
-                    <input type="text" id="material" name="material" placeholder="Carbon"/><br/><br/>
+                    <input type="text" id="material" maxLength="45" name="material" placeholder="Carbon"/><br/><br/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="barcode">Barcode:</label><br/>
-                    <input type="text" id="barcode" name="barcode" placeholder="FF212312QQ"/><br/><br/>
+                    <input type="text" id="barcode" maxLength="45" name="barcode" placeholder="FF212312QQ"/><br/><br/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="serial_number">Serial number:</label><br/>
-                    <input type="text" id="serial_number" name="serial_number" placeholder="SKA52223"/><br/><br/>
+                    <input type="text" id="serial_number" maxLength="45" name="serial_number" placeholder="SKA52223"/><br/><br/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="price">Price:</label><br/>

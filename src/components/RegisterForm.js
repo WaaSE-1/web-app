@@ -48,15 +48,15 @@ const RegisterForm = () => {
       <form className="register-form">
         <div className="input-group">
           <label htmlFor="firstname">First Name:</label><br/>
-          <input type="text" id="firstname" placeholder="John" value={firstName} name="firstname" maxLength="15" onChange={(e) => updateFirstName(e)}/><br/><br/>
+          <input type="text" id="firstname" placeholder="John" value={firstName} name="firstname" maxLength="25" onChange={(e) => updateFirstName(e)}/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="lastname">Last Name:</label><br/>
-          <input type="text" id="lastname" placeholder="Doe" name="lastname" maxLength="15" value={lastName} onChange={(e) => updateLastName(e)}/><br/><br/>
+          <input type="text" id="lastname" placeholder="Doe" name="lastname" maxLength="45" value={lastName} onChange={(e) => updateLastName(e)}/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="email">Email:</label><br/>
-          <input type="email" id="email" placeholder="name@email.com" name="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength="40"/><br/><br/>
+          <input type="email" id="email" placeholder="name@email.com" name="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength="55"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="phone_number">Phone Number:</label><br/>

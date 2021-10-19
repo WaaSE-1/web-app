@@ -28,7 +28,7 @@ const CarCreateForm = ({token}) => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="model">Model:</label><br/>
-                        <input type="text" id="model" name="model" placeholder="Model 3"/><br/><br/>
+                        <input type="text" id="model" maxLength="45" name="model" placeholder="Model 3"/><br/><br/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="year">Year:</label><br/>

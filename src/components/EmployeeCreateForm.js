@@ -42,15 +42,15 @@ const EmployeeCreateForm = ({setEmployees}) => {
         </div>
         <div className="input-group">
           <label htmlFor="firstname">Firstname:</label><br/>
-          <input type="text" id="firstname" name="firstname" placeholder="John"/><br/><br/>
+          <input type="text" id="firstname" maxLength="45" name="firstname" placeholder="John"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="lastname">Lastname:</label><br/>
-          <input type="text" id="lastname" name="lastname" placeholder="Doe"/><br/><br/>
+          <input type="text" id="lastname" maxLength="45" name="lastname" placeholder="Doe"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="email">Email:</label><br/>
-          <input type="text" id="email" name="email" placeholder="john.doe@gmail.com"/><br/><br/>
+          <input type="text" id="email" maxLength="55" name="email" placeholder="john.doe@gmail.com"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="postcode">Post code:</label><br/>
@@ -58,7 +58,7 @@ const EmployeeCreateForm = ({setEmployees}) => {
         </div>
         <div className="input-group">
           <label htmlFor="address">Address:</label><br/>
-          <input type="text" id="address" name="address" placeholder="Street name 23"/><br/><br/>
+          <input type="text" id="address" maxLength="45" name="address" placeholder="Street name 23"/><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="password">Password:</label><br/>
