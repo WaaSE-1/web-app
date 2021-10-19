@@ -5,6 +5,7 @@ import { ProductCustomerRow } from "./ProductCustomer"
 const Products = ({parts, setProducts}) => {
  return (
      parts.length === 0 ? <Loader color="#27293D" type="ThreeDots"/> : (<div className="register-form">
+         <h1 className="header-title">Products</h1>
         <table>  
             <tbody>
                 <tr>

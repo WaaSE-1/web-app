@@ -11,7 +11,7 @@ export const ProductCustomerRow = ({product, products, setProducts}) => {
                 <td>{product.quantity}</td>
                 <td>{product["price per unit"]}</td>
                 <td>{product.dealership}</td>
-                <td><button className="button buy">Buy</button></td>
+                <td><button className="button buy" onClick={() => alert("Not implemented")}>Buy</button></td>
             </tr>
             )      
 }
