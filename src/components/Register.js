@@ -31,7 +31,7 @@ const Register = () => {
   // Register or Submit button for the register page.
   return (<div className="register-form">
       <RegisterForm/>
-      <button className = "register-form button input-group" type="button" value="Register" onClick={e => handleRegisterSubmit(e)}>Submit</button>
+      <button className = "button input-group" type="button" value="Register" onClick={e => handleRegisterSubmit(e)}>Submit</button>
 
   </div>)
 }

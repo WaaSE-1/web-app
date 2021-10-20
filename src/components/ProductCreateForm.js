@@ -59,7 +59,7 @@ const ProductCreateForm = () => {
                     <input type="number" id="price" name="price" placeholder="399.99"/><br/><br/>
                 </div>
                 <p className="info-message">Hey</p>
-                <button className = "register-form button input-group" type="button" value="Register" onClick={e => {addProduct(e)}}>Submit</button>
+                <button className = "button input-group" type="button" value="Register" onClick={e => {addProduct(e)}}>Submit</button>
             </form>
         </div>)
 }
