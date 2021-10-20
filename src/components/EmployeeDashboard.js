@@ -11,6 +11,7 @@ const ProductCreateForm = ({employees, setEmployees}) => {
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Position</th>
+                <th>Department</th>
                 <th>Email</th>
                 <th>Action</th>
             </tr>

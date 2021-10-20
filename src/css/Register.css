@@ -21,6 +21,10 @@ select {
     border-radius: 4px;
     width: 100%;
     margin: 5px 0px 15px 0px;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 .left-align {

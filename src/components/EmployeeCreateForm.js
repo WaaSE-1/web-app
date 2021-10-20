@@ -1,6 +1,24 @@
 import Request from '../scripts/request'
 
+import {useState, useEffect} from 'react'
+
 const EmployeeCreateForm = ({setEmployees}) => {
+  const [dealerships, setDealerships] = useState([])
+  const [departments, setDepartments] = useState([])
+  const [positions, setPositions] = useState([])
+
+  useEffect(() => {
+    Request("GET", "/dealerships", {}).then(data => {
+        setDealerships(data)
+      })
+    Request("GET", "/departments", {}).then(data => {
+        setDepartments(data)
+      })
+    Request("GET", "/employees/positions", {}).then(data => {
+        setPositions(data)
+      })
+  }, [])
+
     const addEmployee = (e) => {
     e.preventDefault();
     let formData = Object.fromEntries(new FormData(document.querySelector("form")))
@@ -28,17 +46,23 @@ const EmployeeCreateForm = ({setEmployees}) => {
     <div className="register-form">
         Add a new employee:
         <form>
-            <div className="input-group">
-          <label htmlFor="dealership_id">Dealership ID:</label><br/>
-          <input type="number" id="dealership_id" placeholder="1" name="dealership_id" maxLength="10"/><br/><br/>
+        <div className="input-group">
+            <label htmlFor="dealership_id">Dealership ID:</label><br/>
+            <select name="dealership_id" id="dealership_id">
+              {dealerships.length !== 0 ? dealerships.map(dealership => <option key={dealership.id} value={dealership.id}>{dealership.name}</option>) : "Loading"}
+            </select><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="department_id">Department ID:</label><br/>
-          <input type="number" id="department_id" maxLength="8" name="department_id" placeholder="1"/><br/><br/>
+          <select name="department_id" id="department_id">
+            {departments.length !== 0 ? departments.map(department => <option key={department.id} value={department.id}>{department.name}</option>) : "Loading"}
+          </select><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="position">Position:</label><br/>
-          <input type="number" id="position" name="position" placeholder="1"/><br/><br/>
+          <select name="position" id="position">
+            {positions.length !== 0 ? positions.map(position => <option key={position.id} value={position.id}>{position.name}</option>) : "Loading"}
+          </select><br/><br/>
         </div>
         <div className="input-group">
           <label htmlFor="firstname">Firstname:</label><br/>
@@ -65,7 +89,7 @@ const EmployeeCreateForm = ({setEmployees}) => {
           <input type="password" id="password" name="password" placeholder="***********"/><br/><br/>
         </div>
         <p className="info-message">Hey</p>
-        <button className = "register-form button input-group" type="button" value="Register" onClick={e => {addEmployee(e)}}>Submit</button>
+        <button className = "button input-group" type="button" value="Register" onClick={e => {addEmployee(e)}}>Submit</button>
         </form>
     </div>)
 }
