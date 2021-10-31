@@ -5,7 +5,7 @@ import { CarDetails } from './CarDetails'
 import Loader from "react-loader-spinner";
 
 const Garage = ({token}) => {
-    const [cars, setCars] = useState([])
+    const [cars, setCars] = useState(null)
 
     useEffect(() => {
       Request("GET", "/users/garage", {}, 'Bearer ' + token).then(data => {
@@ -17,7 +17,6 @@ const Garage = ({token}) => {
         e.preventDefault()
         let formData = {"price": 0, ...Object.fromEntries(new FormData(document.querySelector("form")))}
         let infoBar = document.getElementsByClassName("info-message")[0]
-        console.log(formData)
         if (Object.values(formData).some(e => e === '')) {
             console.log('empty', Object.values(formData))
             infoBar.style.visibility = "visible"
@@ -47,7 +46,7 @@ const Garage = ({token}) => {
         <div className="grid register-form">
             <div className="cars">
                  <h1 className="header-title">Your cars</h1>
-                {cars.length === 0 ? <Loader color="#1e1e2f" type="ThreeDots"/> : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
+                {cars === null ? <Loader color="#1e1e2f" type="ThreeDots"/> : cars.length === 0 ? "No cars available" : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />)}
             </div>
             <div className="addCar">
                 <h1 className="header-title">Add a new car</h1>
@@ -74,7 +73,9 @@ const Garage = ({token}) => {
                         <input type="text" id="manufacturer" maxLength="10" name="license_plate" placeholder="ES El5I"/><br/><br/>
                     </div>
                     <p className="info-message">Hey</p>
-                    <button type="button" className="button" onClick={(e) => createCarForUser(e)}>Add a car</button>
+                    <div className="input-group">
+                        <button type="button" className="button buy" onClick={(e) => createCarForUser(e)}>Add a car</button>
+                    </div>
                 </form>
             </div>
         </div>

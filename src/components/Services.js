@@ -7,8 +7,8 @@ import Loader from "react-loader-spinner";
 
 
 export const Services = ({services, token}) => {
-    const [cars, setCars] = useState([])
-    const [history, setHistory] = useState([])
+    const [cars, setCars] = useState(null)
+    const [history, setHistory] = useState(null)
 
 
     const createServiceRequest = (e) => {
@@ -50,18 +50,18 @@ export const Services = ({services, token}) => {
         <div className="grid register-form">
             <div className="services">
                 <h1 className="header-title">Your history</h1>
-                {history.length === 0 ? services.length > 0 ? "No service history!" : <Loader color="#1e1e2f" type="ThreeDots"/> : history.map(item => <p key={item.id}>{item.service_type} ({item.service_date}) - {item.VIN} by {item.Mechanic}</p>)}
+                {history === null ? <Loader color="#1e1e2f" type="ThreeDots"/> : history.length === 0 ? "No service history!" : history.map(item => <p key={item.id}>{item.service_type} ({item.service_date}) - {item.VIN} by {item.Mechanic}</p>)}
             </div>
             <div className="customer-section">
                 <div className="customer-cars">
                     <h1 className="header-title">Your cars</h1>
-                    {cars.length === 0 ? cars.length === 0 && services.length > 0 ? "No cars available!" : <Loader color="#1e1e2f" type="ThreeDots"/> : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />) }
+                    {cars === null ? <Loader color="#1e1e2f" type="ThreeDots"/> : cars.length === 0 ? "No cars available!" : cars.map(car => <CarDetails key={car.vehicle_ident_number} car={car} />) }
                 </div>
             </div>
             <div className="book-a-service">
                 <div className="customer-cars">
                     <h1 className="header-title">Book a service</h1>
-                    {cars.length !== 0 && services.length !== 0 ? (<form >
+                    {cars !== null && services !== null && cars.length !== 0 && services.length !== 0 ? (<form >
                         <div className="input-group">
                             <label htmlFor="services">Service type</label>
                             <select name="service" id="service">
@@ -78,7 +78,7 @@ export const Services = ({services, token}) => {
                         <div className="input-group">
                             <button type="button" className="button buy" onClick={(e) => createServiceRequest(e)}>Create service request</button>
                         </div>
-                    </form>) : cars.length === 0 && services.length > 0 ? "No cars available!" : <Loader color="#1e1e2f" type="ThreeDots"/>}
+                    </form>) : cars !== null && services !== null  ? "No cars available!" : <Loader color="#1e1e2f" type="ThreeDots"/>}
                 </div>
             </div>
             
