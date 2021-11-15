@@ -10,7 +10,7 @@ async function Request(type, path, body, token){
     if (type !== "GET") {
         requestBody.body = JSON.stringify(body)
     }
-    const response = await fetch(`https://kea-car-dealership.herokuapp.com${path}`, requestBody)
+    const response = await fetch(`https://api-service.azurewebsites.net/${path}`, requestBody)
     return await response.json()
 }
 
