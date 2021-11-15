@@ -15,7 +15,7 @@ const ProductCreateForm = ({employees, setEmployees}) => {
                 <th>Email</th>
                 <th>Action</th>
             </tr>
-            {employees ? employees.map(employee => <EmployeeRow key={employee.id} setEmployees={setEmployees} employee={employee} employees={employees}/>) : ""}
+            {employees ? employees.sort((e1, e2) => e1.id - e2.id).map(employee => <EmployeeRow key={employee.id} setEmployees={setEmployees} employee={employee} employees={employees}/>) : ""}
             </tbody>
         </table>
     </div>)

@@ -5,7 +5,7 @@ const EmployeeRow = ({employee, employees, setEmployees}) => {
         console.log(email)
         Request("DELETE", "/employees/", {email: email}).then(data => {
             if (data.success){
-                setEmployees(employees.filter(employee => employee.email !== email))
+                setEmployees(employees.filter(employee => employee.email !== email).sort((e1, e2) => e1.id - e2.id))
                 
             }
         })
