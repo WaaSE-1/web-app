@@ -1,10 +1,7 @@
-const Logout = ({setToken}) => {
+
+const Logout = ({setToken,}) => {
     localStorage.removeItem('token')
     setToken(null)
-    return (
-        <div>
-            Logged out!
-        </div>
-    )
+    window.location = "/"
 }
 export default Logout

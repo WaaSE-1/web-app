@@ -8,7 +8,7 @@ export const Homepage = () => {
     return (
         <div className="register-form ">
             <h1 className="header-title">Hellstern Auto</h1>
-            <p><i class="fas fa-hand-sparkles" style={{color: "green"}} ></i> Welcome to our car dealership. <i class="fas fa-hand-sparkles" style={{color: "green"}} ></i><br /> Here you can find the most reliable cars and their parts.<br /> 
+            <p><i className="fas fa-hand-sparkles" style={{color: "green"}} ></i> Welcome to our car dealership. <i className="fas fa-hand-sparkles" style={{color: "green"}} ></i><br /> Here you can find the most reliable cars and their parts.<br /> 
                 You can create an account, add a car to your profile, and request a service<br /> 
                 to be done to your vehicle by one of our trained employees.
             </p><h1 className="header-title">Our Values</h1>
@@ -17,20 +17,20 @@ export const Homepage = () => {
             <div className="grid" style={{width: "800px", margin: "40px auto 0px auto"}}>
                 <div className="field" style={{ border: "1px solid rgb(255 255 255)", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{ marginTop:"30%"}}>
-                        <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
+                        <i style={{fontSize: "30px"}} className="fas fa-car"></i> 
                         <p>Best car selection</p>
                     </div>
                 </div>
                 
                 <div className="field" style={{ border: "1px solid rgb(255 255 255)", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{marginTop:"30%"}}>
-                        <i style={{fontSize: "30px"}} class="fas fa-car"></i> 
+                        <i style={{fontSize: "30px"}} className="fas fa-car"></i> 
                         <p>Cheapest prices</p>
                     </div>
                 </div>
                 <div className="field" style={{ border: "1px solid rgb(255 255 255)", width: "200px", height: "200px", borderRadius: "50%"}}>
                     <div className="inner" style={{ marginTop:"30%"}}>
-                        <i style={{fontSize: "30px"}} class="fas fa-concierge-bell"></i> 
+                        <i style={{fontSize: "30px"}} className="fas fa-concierge-bell"></i> 
                         <p>Fastest car repairs</p>
                     </div>
                 </div>
