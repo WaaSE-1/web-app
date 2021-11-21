@@ -11,7 +11,6 @@ Front-end web application for the car delaership platform developed for a educat
 - Patrick Klausgaard
 - Jacob Sibbern
 - Sebastian Arnvig
-- Silke Castrone
 - Țurcan Corina
 
 <!-- #### Coding Standards
